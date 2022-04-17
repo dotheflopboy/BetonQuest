@@ -2333,7 +2333,7 @@ It will then be played together with the default advancement sound.</p>
 </tr>
 <tr>
 <td>progress</td>
-<td>What progress to show the bar. A floating point number between 0.0 (empty) and 1.0 (full)</td>
+<td>What progress to show in the bar. A floating point number between 0.0 (empty) and 1.0 (full). Supports variables.</td>
 </tr>
 <tr>
 <td>style</td>
@@ -2341,11 +2341,11 @@ It will then be played together with the default advancement sound.</p>
 </tr>
 <tr>
 <td>stay</td>
-<td>How many ticks to keep the bar on screen. Defaults to 70</td>
+<td>How many ticks to keep the bar on screen. Defaults to 70.</td>
 </tr>
 <tr>
 <td>countdown</td>
-<td>If set, will step the progress of the bar by countdown steps. For example, if set to 10, then 10 times during the time it is on the screen the progress will drop by 1/10</td>
+<td>Animates the progress of the bar if set. The value determines how often the bar is updated. Formula: <span class="arithmatex">\(TimeBetweenUpdates = \frac{stay}{countdown}\)</span></td>
 </tr>
 <tr>
 <td><a href="#sound">Sound</a></td>
@@ -2696,7 +2696,7 @@ You can override the settings from the info/error category for any specific noti
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-03T04:23:57+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-03</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-17T14:27:11+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-17</span>
       
     
   </small>
@@ -2907,6 +2907,12 @@ You can override the settings from the info/error category for any specific noti
         <script src="../../_webCode/js/copyLinkToClipboard.js"></script>
       
         <script src="../../_webCode/js/copyrightYearUpdater.js"></script>
+      
+        <script src="../../_webCode/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

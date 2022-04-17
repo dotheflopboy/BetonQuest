@@ -1093,8 +1093,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delay-delay" class="md-nav__link">
-    Delay: delay
+  <a href="#wait-delay" class="md-nav__link">
+     Wait: delay
   </a>
   
 </li>
@@ -2271,8 +2271,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#delay-delay" class="md-nav__link">
-    Delay: delay
+  <a href="#wait-delay" class="md-nav__link">
+     Wait: delay
   </a>
   
 </li>
@@ -2541,23 +2541,78 @@ time the player advances the objective, optionally with the notification interva
 <div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">experience 25 level events:reward</span><span class="w"></span>
 </code></pre></div>
 </div>
-<h2 id="delay-delay">Delay: <code>delay</code><a class="headerlink" href="#delay-delay" title="Permanent link">🔗</a></h2>
-<p>This objective is just a long, persistent delay for firing events. It will run only after certain amount of time
-(measured in minutes) and only when player is online and meets all conditions. If a player is offline at that time it
-will just wait for them to log in. You should use it for example to delete tags so the player can complete quests
-multiple times. First argument is time, by default in minutes. You can also use <code>ticks</code> or <code>seconds</code> argument to use
-different units, but keep in mind that it's not very precise - it will complete roughly after the time ends. To control
-that precision you can specify an optional <code>interval:</code> argument, which specifies how many ticks should pass between
-checks. One second is 20 ticks. Less makes the objective more precise, at the expense of performance. The rest is
-just like in other objectives.</p>
-<p>Delay has two properties, <code>left</code> and <code>date</code>. The first one will show how much time needs to pass before the delay is
-completed (i.e. <code>23 days, 5 hours and 45 minutes</code>), the second one will show a date of completing the objective
-formatted using <code>date_format</code> setting in <em>config.yml</em> (it will look like the one above every journal entry).</p>
-<div class="admonition example">
+<h2 id="wait-delay"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8m0-18c5.5 0 10 4.5 10 10s-4.5 10-10 10C6.47 22 2 17.5 2 12S6.5 2 12 2m.5 11H11V7h1.5v4.26l3.7-2.13.75 1.3L12.5 13Z"/></svg></span> Wait: <code>delay</code><a class="headerlink" href="#wait-delay" title="Permanent link">🔗</a></h2>
+<p>This objective completes itself after certain amount of time.
+The player must be online and meet all conditions. If the player is not online the objective is completed on the player's
+next login.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>time</em></td>
+<td>any number</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The time after which the objective is completed.</td>
+</tr>
+<tr>
+<td><em>unit</em></td>
+<td>keyword</td>
+<td>minutes</td>
+<td>The unit of time. Either <code>minutes</code>, <code>seconds</code> or <code>ticks</code>.</td>
+</tr>
+<tr>
+<td><em>precision</em></td>
+<td>interval:number</td>
+<td>interval:200</td>
+<td>The interval in which the objective checks if the time is up. Measured in ticks. Low values cost more performance but make the objective preciser.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example annotate">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">delay 1000 ticks interval:5 events:event1,event2</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">delay 1440 events:resetDaily (2)</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">delay 1000 ticks interval:5 events:failQuest (1)</span><span class="w"> </span>
 </code></pre></div>
 </div>
+<ol>
+<li>Runs the <code>failQuest</code> event after 1000 ticks (50 seconds) have passed. The objective checks every 5 ticks (250ms) if the time is up.</li>
+<li>Runs the <code>resetDaily</code> event after 1440 minutes (24 hours).</li>
+</ol>
+<h5> Variable Properties </h5>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Example Output</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>left</em></td>
+<td>23 days, 5 hours and 45 minutes</td>
+<td>Shows the time left until the objective is completed.</td>
+</tr>
+<tr>
+<td><em>date</em></td>
+<td>17.04.2022 16:14</td>
+<td>Shows the date the objective is completed at using the config's <code>date_format</code> <a href="../Configuration/#misc-settings">setting</a>.</td>
+</tr>
+<tr>
+<td><em>secondsRaw</em></td>
+<td>5482</td>
+<td>Shows the amount of seconds until objective completion.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="death-die">Death: <code>die</code><a class="headerlink" href="#death-die" title="Permanent link">🔗</a></h2>
 <p>Death objective completes when the player dies meeting all conditions. You can optionally cancel death with <code>cancel</code>
 argument. It will heal player and optionally teleport him to respawn location. There can be two arguments: <code>cancel</code>,
@@ -2869,7 +2924,7 @@ by what players type in chat which is only useful when you're also using the <co
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-10T11:48:36+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-10</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-17T19:16:35+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-17</span>
       
     
   </small>
@@ -3080,6 +3135,12 @@ by what players type in chat which is only useful when you're also using the <co
         <script src="../../_webCode/js/copyLinkToClipboard.js"></script>
       
         <script src="../../_webCode/js/copyrightYearUpdater.js"></script>
+      
+        <script src="../../_webCode/js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
