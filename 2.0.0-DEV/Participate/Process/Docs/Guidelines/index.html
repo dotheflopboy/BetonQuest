@@ -2213,11 +2213,10 @@ a consistent baseline for other contributors to work with.</p>
 <p><em>Italic text</em> is surrounded by one underscore on each side: <code>_Italic text_</code></p>
 <h3 id="lists">Lists<a class="headerlink" href="#lists" title="Permanent link">🔗</a></h3>
 <p>Lists must be declared as such:</p>
-<div class="highlight"><pre><span></span><code>* Top Level
+<p><code>* Top Level
     - Second Level
     - Second Level
-* Another Top level
-</code></pre></div>
+* Another Top level</code></p>
 <p>Result:</p>
 <ul>
 <li>Top Level<ul>
@@ -2233,35 +2232,27 @@ Tables and other special syntax are exempt from this rule.</p>
 <h2 id="links">Links<a class="headerlink" href="#links" title="Permanent link">🔗</a></h2>
 <h3 id="internal">Internal<a class="headerlink" href="#internal" title="Permanent link">🔗</a></h3>
 <p>Links to internal pages can be opened in the same tab. This works using Markdown link syntax:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Click the [highlighted words](Contributing.md).
-</code></pre></div>
-</td></tr></table>
+<p><code>linenums="1"
+Click the [highlighted words](Contributing.md).</code>
 Result: Click the <a href="../../../Overview/">highlighted words</a>.</p>
 <h3 id="external">External<a class="headerlink" href="#external" title="Permanent link">🔗</a></h3>
 <p>Links to external sites must be opened in new tabs using this HTML code:</p>
-<p><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://betonquest.org/&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_blank&quot;</span><span class="p">&gt;</span>Clickable text that opens a new tab<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>HTML linenums="1"
+&lt;a href="https://betonquest.org/" target="_blank"&gt;Clickable text that opens a new tab&lt;/a&gt;</code>
 Result: <a href="https://betonquest.org/" target="_blank">Clickable text that opens a new tab</a></p>
 <h2 id="displaying-yaml-code">Displaying (YAML) code<a class="headerlink" href="#displaying-yaml-code" title="Permanent link">🔗</a></h2>
 <p>You must use codeboxes with the specific language set in the header (<code>YAML</code> in this example).
 You also have to enable line numbers by adding the <code>linenums="1"</code> argument. 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code> ``` YAML linenums=&quot;1&quot;
- use: &quot;codeboxes for code&quot;
- ```
-</code></pre></div>
-</td></tr></table></p>
+<code>linenums="1"</code> YAML linenums="1"
+ use: "codeboxes for code"
+ <code></code></p>
 <p>Result:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">use</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;codeboxes</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">code&quot;</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+use: "codeboxes for code"</code></p>
 <h3 id="refering-to-yaml-elements-in-written-text">Refering to YAML elements in written text<a class="headerlink" href="#refering-to-yaml-elements-in-written-text" title="Permanent link">🔗</a></h3>
 <p>An example of this would be to reference an event name in an explanation.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">The event `someEvent` prints a message to the player!</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+The event `someEvent` prints a message to the player!</code></p>
 <p>Result:
 The event <code>someEvent</code> prints a message to the player!</p>
 <h2 id="file-names">File names<a class="headerlink" href="#file-names" title="Permanent link">🔗</a></h2>

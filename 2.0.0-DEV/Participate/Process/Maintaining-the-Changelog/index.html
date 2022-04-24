@@ -2031,58 +2031,59 @@ These are general rules:</p>
 <ul>
 <li>Write user-friendly entries - they are the ones that read the changelog after all.</li>
 <li>Do not repeat the heading for individual entries 
-<div class="highlight"><pre><span></span><code>Added:
-  * <del class="critic">added</del> new conversation style: Hologram
-  * new conversation style: Hologram
-</code></pre></div></li>
+```
+Added:</li>
+<li><del class="critic">added</del> new conversation style: Hologram</li>
+<li>new conversation style: Hologram
+```</li>
 <li>Mark events, objectives etc. names with <code>`</code> around them.</li>
 </ul>
 <p>Here is a breakdown of what belongs in each section:</p>
 <details class="info">
 <summary>Added</summary>
 <p>Do not write what class or file was added, describe the feature you added.</p>
-<div class="highlight"><pre><span></span><code>Added:
-  <span class="k">-</span> event <span class="sb">`teleport`</span> allows teleportation of players
-  <span class="k">-</span> Citizens event <span class="sb">`movenpc`</span> makes it possible to let a NPC walk to a specific location
-</code></pre></div>
+<p><code>MD
+Added:
+  - event `teleport` allows teleportation of players
+  - Citizens event `movenpc` makes it possible to let a NPC walk to a specific location</code></p>
 </details>
 <details class="info">
 <summary>Changed</summary>
 <p>Give qualified information that indicates what the user may have to be aware of.
 Do not write <code>event x has now argument y</code> - that is a new feature and belongs to <code>Added</code>. Only add to this section
 if there are changed <em>behaviours</em>.</p>
-<div class="highlight"><pre><span></span><code>Changed:
-  <span class="k">-</span> event <span class="sb">`teleport`</span> now first checks if another plugin canceled the event
-  <span class="k">-</span> german translations have been updated
-</code></pre></div>
+<p><code>MD
+ Changed:
+   - event `teleport` now first checks if another plugin canceled the event
+   - german translations have been updated</code></p>
 </details>
 <details class="info">
 <summary>Deprecated</summary>
 <p>List things that have been marked for removal. Also mention possible replacements.</p>
-<div class="highlight"><pre><span></span><code>Deprecated:
-  <span class="k">-</span> event <span class="sb">`message`</span> will be deleted, use the <span class="sb">`notify`</span> event instead
-  <span class="k">-</span> Minecraft recently replaced material ids with namespaces. Update your items accordingly, ids will stop working soon 
-</code></pre></div>
+<p><code>MD
+ Deprecated:
+   - event `message` will be deleted, use the `notify` event instead
+   - Minecraft recently replaced material ids with namespaces. Update your items accordingly, ids will stop working soon</code></p>
 </details>
 <details class="info">
 <summary>Removed</summary>
 <p>After something has been marked for removal in the category <code>Deprecated</code> it will end up here eventually.
 Repeat possible replacements.</p>
-<div class="highlight"><pre><span></span><code>Removed:
-  <span class="k">-</span> <span class="sb">`message`</span> event, use the <span class="sb">`notify`</span> event instead
-  <span class="k">-</span> old material syntax, use material namespaces instead
-</code></pre></div>
+<p><code>MD
+ Removed:
+   - `message` event, use the `notify` event instead
+   - old material syntax, use material namespaces instead</code></p>
 </details>
 <details class="info">
 <summary>Fixes</summary>
 <p>Solved bugs are listed in this category.
 Let the users know what the bug did, so they know if they were affected.
 Mention if the fix changed a behaviour.</p>
-<div class="highlight"><pre><span></span><code>Fixes:
-  <span class="k">-</span> event <span class="sb">`notify`</span> did not resolve variables correctly
-  <span class="k">-</span> Citizens event <span class="sb">`movenpc`</span> is now more robust combined with other events like <span class="sb">`stopnpc`</span> and <span class="sb">`teleportnpc`</span>
-    <span class="k">-</span> you may need to reduce the distance beetween waypoints
-</code></pre></div>
+<p><code>MD
+Fixes:
+  - event `notify` did not resolve variables correctly
+  - Citizens event `movenpc` is now more robust combined with other events like `stopnpc` and `teleportnpc`
+    - you may need to reduce the distance beetween waypoints</code></p>
 </details>
 <details class="info">
 <summary>Security</summary>
@@ -2090,10 +2091,10 @@ Mention if the fix changed a behaviour.</p>
 But if something can be abused to effect server security or performance, 
 you keep the way how it can be abused secret.<br />
 <strong>DO NOT LEAK EXPLOITABLE SECURITY ISSUES!</strong></p>
-<div class="highlight"><pre><span></span><code>Security:
-  <span class="k">-</span> the take event is now threadsafe
-  <span class="k">-</span> a deadlock in conversations was fixed
-</code></pre></div>
+<p><code>MD
+ Security:
+   - the take event is now threadsafe
+   - a deadlock in conversations was fixed</code></p>
 </details>
 <hr />
 <h2 id="where-to-continue">Where to Continue?<a class="headerlink" href="#where-to-continue" title="Permanent link">🔗</a></h2>

@@ -2069,22 +2069,22 @@
 <li>Rename <code>main.yml</code> to <code>package.yml</code></li>
 <li>Change the <code>events.yml</code>, <code>objectives.yml</code>, <code>conditions.yml</code>, <code>journal.yml</code> and <code>items.yml</code> to the following format
   with an extra prefix matching their file name:
-  <div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">myEvent1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">...</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div></li>
+  <code>YAML
+  events:
+    myEvent1: ...
+    ....</code></li>
 <li>Change the <code>conversations</code> and <code>menus</code> to the following format with an extra prefix matching there type and the file
   name:
-  <div class="highlight"><pre><span></span><code><span class="nt">conversations</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">ConversationName</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div>
+  <code>YAML
+  conversations:
+    ConversationName:
+      NPC_options: ....
+      ....</code>
   or alternatively:
-  <div class="highlight"><pre><span></span><code><span class="nt">conversations.ConversationName</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">....</span><span class="w"></span>
-</code></pre></div></li>
+  <code>YAML
+  conversations.ConversationName:
+    NPC_options: ....
+    ....</code></li>
 <li>Quest packages can now contain nested quest packages in sub folders. You can also have any file and folder structure
   with any file and folder names you want. Only the <code>package.yml</code> is reserved as indicator for a quest
   package. <a href="../../Reference/#packages">DOCS</a></li>

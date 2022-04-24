@@ -2184,22 +2184,22 @@
 If you plan on doing something with this API please keep in mind that you will need to change it again later.</p>
 </div>
 <p>Add this to your pom.xml.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;repositories&gt;</span>
-    <span class="nt">&lt;repository&gt;</span>
-        <span class="nt">&lt;id&gt;</span>betonquest-repo<span class="nt">&lt;/id&gt;</span>
-        <span class="nt">&lt;url&gt;</span>https://betonquest.org/nexus/repository/betonquest/<span class="nt">&lt;/url&gt;</span>
-    <span class="nt">&lt;/repository&gt;</span>
-<span class="nt">&lt;/repositories&gt;</span>
-
-<span class="nt">&lt;dependencies&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-        <span class="nt">&lt;groupId&gt;</span>org.betonquest<span class="nt">&lt;/groupId&gt;</span>
-        <span class="nt">&lt;artifactId&gt;</span>betonquest<span class="nt">&lt;/artifactId&gt;</span>
-        <span class="nt">&lt;version&gt;</span>2.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-        <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-<span class="nt">&lt;/dependencies&gt;</span>
-</code></pre></div>
+<p>```XML
+<repositories>
+    <repository>
+        <id>betonquest-repo</id>
+        <url><a href="https://betonquest.org/nexus/repository/betonquest/">https://betonquest.org/nexus/repository/betonquest/</a></url>
+    </repository>
+</repositories></p>
+<p><dependencies>
+    <dependency>
+        <groupId>org.betonquest</groupId>
+        <artifactId>betonquest</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+        <scope>provided</scope>
+    </dependency>
+</dependencies>
+```</p>
 <h2 id="writing-events">Writing events<a class="headerlink" href="#writing-events" title="Permanent link">🔗</a></h2>
 <p>Writing events is the easiest. You need to create a class extending <code>QuestEvent</code> for each new event. The constructor must take one argument, an <code>Instruction</code> object. In the constructor you must extract all information from the instruction, for example skill names, locations etc. The description of the <code>Instruction</code> class is down below. Don't worry about checking event conditions, these are handled by the rest of BetonQuest's logic.</p>
 <p>Events are not bound to any player so firing it is done through <code>fire(String playerID)</code> method. You have to override it with your code responsible for doing stuff your event should do. Here you should use data previously parsed by the constructor. Don't access <code>Instruction</code> object here, it will lower the performance. You can convert <code>playerID</code> to <code>Player</code> object using the <code>PlayerConverter</code> class (it's a relict of times when both UUIDs and names could be used in Bukkit to identify players).</p>

@@ -2173,11 +2173,9 @@ This requires a Lombock setup in your project and in your IDE.</p>
 <p>The first step is to install a Lombok plugin in your IDE. IntelliJ contains it by default.</p>
 <p>All 3<sup>rd</sup> party plugins need to create a new file named <code>lombok.config</code> in their projects root.
 Copy the following to the file:
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>lombok.log.custom.declaration = org.betonquest.betonquest.api.BetonQuestLogger org.betonquest.betonquest.api.BetonQuestLogger.create(TYPE)(TYPE,TOPIC)
-lombok.log.fieldName = LOG
-</code></pre></div>
-</td></tr></table>
+<code>linenums="1"
+lombok.log.custom.declaration = org.betonquest.betonquest.api.BetonQuestLogger org.betonquest.betonquest.api.BetonQuestLogger.create(TYPE)(TYPE,TOPIC)
+lombok.log.fieldName = LOG</code>
 Additionally, Lombock also needs to be setup for the project. The exact configuration depends on your project
 setup.</p>
 </div>
@@ -2188,18 +2186,14 @@ extends <code>Plugin</code>, see the warning box below for more information. </p
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Without topic</label><label for="__tabbed_2_2">With topic</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@CustomLog</span>
-<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">MyCustomEvent</span> <span class="p">{</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+@CustomLog
+public final class MyCustomEvent {</code></p>
 </div>
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@CustomLog</span><span class="p">(</span><span class="n">topic</span> <span class="o">=</span> <span class="s">&quot;MyCustomTopic&quot;</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">MyCustomEvent</span> <span class="p">{</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+@CustomLog(topic = "MyCustomTopic")
+public final class MyCustomEvent {</code></p>
 </div>
 </div>
 </div>
@@ -2212,18 +2206,14 @@ Simply create a BetonQuestLogger instance.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Without topic</label><label for="__tabbed_3_2">With topic</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">MyCustomEvent</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">BetonQuestLogger</span> <span class="n">LOG</span> <span class="o">=</span> <span class="n">BetonQuestLogger</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">MyCustomEvent</span><span class="p">.</span><span class="na">class</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+public final class MyCustomEvent {
+    private final static BetonQuestLogger LOG = BetonQuestLogger.create(MyCustomEvent.class);</code></p>
 </div>
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">MyCustomEvent</span> <span class="p">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">BetonQuestLogger</span> <span class="n">LOG</span> <span class="o">=</span> <span class="n">BetonQuestLogger</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">MyCustomEvent</span><span class="p">.</span><span class="na">class</span><span class="p">,</span> <span class="s">&quot;MyCustomTopic&quot;</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+public final class MyCustomEvent {
+    private final static BetonQuestLogger LOG = BetonQuestLogger.create(MyCustomEvent.class, "MyCustomTopic");</code></p>
 </div>
 </div>
 </div>
@@ -2239,42 +2229,40 @@ Create the logger instance in the <code>onEnable()</code> method instead.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Without topic</label><label for="__tabbed_4_2">With topic</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>````java linenums="1"
+public final class BetonQuestAddon extends JavaPlugin {</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BetonQuestAddon</span> <span class="kd">extends</span> <span class="n">JavaPlugin</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">BetonQuestLogger</span><span class="w"> </span><span class="nf">log</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">BetonQuestLogger</span> <span class="n">log</span><span class="p">;</span>
+<span class="nv">@Override</span><span class="w"></span>
+<span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">onEnable</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="nf">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BetonQuestLogger</span><span class="p">.</span><span class="k">create</span><span class="p">(</span><span class="n">this</span><span class="p">);</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEnable</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">log</span> <span class="o">=</span> <span class="n">BetonQuestLogger</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<p>````</p>
 </div>
 <div class="tabbed-block">
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<p>````java linenums="1"
+public final class BetonQuestAddon extends JavaPlugin {</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">BetonQuestAddon</span> <span class="kd">extends</span> <span class="n">JavaPlugin</span> <span class="p">{</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">BetonQuestLogger</span><span class="w"> </span><span class="nf">log</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kd">private</span> <span class="kd">static</span> <span class="n">BetonQuestLogger</span> <span class="n">log</span><span class="p">;</span>
+<span class="nv">@Override</span><span class="w"></span>
+<span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">onEnable</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="nf">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BetonQuestLogger</span><span class="p">.</span><span class="k">create</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;MyCustomTopic&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 
-    <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onEnable</span><span class="p">()</span> <span class="p">{</span>
-        <span class="n">log</span> <span class="o">=</span> <span class="n">BetonQuestLogger</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s">&quot;MyCustomTopic&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<p>````</p>
 </div>
 </div>
 </div>

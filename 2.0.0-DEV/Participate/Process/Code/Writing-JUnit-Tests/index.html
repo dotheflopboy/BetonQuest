@@ -2117,38 +2117,32 @@ basic knowledge of JUnit tests and mocking of objects and classes.</p>
 <p>By default, all classes and methods are executed <code>CONCURRENT</code>. This means that its tests are run in parallel which saves
 time. Some tests cannot be executed in parallel, in such cases the following annotation needs to be 
 added to the related methods or the entire class.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Execution</span><span class="p">(</span><span class="n">ExecutionMode</span><span class="p">.</span><span class="na">SAME_THREAD</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+@Execution(ExecutionMode.SAME_THREAD)</code></p>
 </div>
 <h2 id="handling-logging">Handling Logging<a class="headerlink" href="#handling-logging" title="Permanent link">🔗</a></h2>
 <p><em>You may need to read <a href="../../../../API/Logging/">Logging</a> to understand this paragraph.</em></p>
 <p>This error can occur everytime the <code>@CustomLog</code> annotation is used in a class that is called by a JUnit test:</p>
-<div class="highlight"><pre><span></span><code>Cannot invoke &quot;org.bukkit.Server.getPluginManager()&quot; because &quot;org.bukkit.Bukkit.server&quot; is null
-</code></pre></div>
+<p><code>Cannot invoke "org.bukkit.Server.getPluginManager()" because "org.bukkit.Bukkit.server" is null</code></p>
 <p>If this is the case, you need the <code>BetonQuestLoggerService</code>. Simply add the following annotation to the
 class:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="nd">@ExtendWith</span><span class="p">(</span><span class="n">BetonQuestLoggerService</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClass</span> <span class="p">{</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1" hl_lines="1"
+@ExtendWith(BetonQuestLoggerService.class)
+public class TestClass {</code></p>
 <p>The test should now work as intended because a new anonymous logger is created everytime the <code>@CustomLog</code> annotation
 is used. All these loggers have a silent parent logger - so there are no visible log messages in the command line. The 
 <code>BetonQuestLoggerService</code> also enables a few new features:</p>
 <h3 id="logvalidator">LogValidator<a class="headerlink" href="#logvalidator" title="Permanent link">🔗</a></h3>
 <p>You can now add this optional argument to any test's method signature:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@ExtendWith</span><span class="p">(</span><span class="n">BetonQuestLoggerService</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClass</span> <span class="p">{</span>
+<p>```java linenums="1" hl_lines="5"
+@ExtendWith(BetonQuestLoggerService.class)
+public class TestClass {</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nv">@Test</span><span class="w"></span>
+<span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">testCustom</span><span class="p">(</span><span class="n">LogValidator</span><span class="w"> </span><span class="n">validator</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+</code></pre></div></td></tr></table></div>
 
-    <span class="nd">@Test</span>
-<span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCustom</span><span class="p">(</span><span class="n">LogValidator</span> <span class="n">validator</span><span class="p">)</span> <span class="p">{</span>
-</span></code></pre></div>
-</td></tr></table>
+<p>```</p>
 <p>The <code>LogValidator</code> is created and passed to your method by the <code>BetonQuestLoggerService</code>.
 It makes it possible to assert that a log message has been logged in the silent parent logger.
 The simplest method is <code>assertLogEntry(Level level, String message)</code>, that you can use to check
@@ -2159,25 +2153,19 @@ messages in the <code>LogValidator</code> by calling <code>assertEmpty()</code>.
 <p>When using the <code>LogValidator</code>, you validate that log messages are logged in the correct order. This means that
 if you leave the <code>ExecutionMode</code> on its default (<code>CONCURRENT</code>) value, the test will fail. This happens because the
 log messages don't have a predictable order as your tests would be executed in parallel.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Execution</span><span class="p">(</span><span class="n">ExecutionMode</span><span class="p">.</span><span class="na">SAME_THREAD</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table></p>
+<code>java linenums="1"
+@Execution(ExecutionMode.SAME_THREAD)</code></p>
 </div>
 <h3 id="advanced-features">Advanced Features<a class="headerlink" href="#advanced-features" title="Permanent link">🔗</a></h3>
 <details class="note">
 <summary>Obtaining the parent <code>Logger</code> and a <code>BetonQuestLogger</code></summary>
 <p>You can also use these two additional arguments:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@ExtendWith</span><span class="p">(</span><span class="n">BetonQuestLoggerService</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClass</span> <span class="p">{</span>
-    <span class="nd">@Test</span>
-<span class="hll">    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCustom</span><span class="p">(</span><span class="n">LogValidator</span> <span class="n">validator</span><span class="p">,</span> <span class="n">Logger</span> <span class="n">logger</span><span class="p">,</span> <span class="n">BetonQuestLogger</span> <span class="n">log</span><span class="p">)</span> <span class="p">{</span>
-</span></code></pre></div>
-</td></tr></table>
+<p>```java linenums="1" hl_lines="5"
+@ExtendWith(BetonQuestLoggerService.class)</p>
+<p>public class TestClass {
+    @Test
+    public void testCustom(LogValidator validator, Logger logger, BetonQuestLogger log) {
+```</p>
 <p>The <code>logger</code> is the silent parent <code>Logger</code>.</p>
 <p>The <code>log</code> is a new instance of the <code>BetonQuestLogger</code> that you can use to log things during the test.
 This logger has a topic that can be accessed via <code>BetonQuestLoggerService.LOGGER_TOPIC</code>.</p>
@@ -2185,44 +2173,29 @@ This logger has a topic that can be accessed via <code>BetonQuestLoggerService.L
 <h2 id="handling-bukkitscheduler">Handling BukkitScheduler<a class="headerlink" href="#handling-bukkitscheduler" title="Permanent link">🔗</a></h2>
 <p>If you want to test code that only works with the <code>BukkitScheduler</code>, we even have a ready to use solution for this.
 To use the <code>BukkitSchedulerMock</code> you need to create the following setup:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nd">@Test</span>
-<span class="kt">void</span> <span class="n">testMethod</span> <span class="p">{</span>
-<span class="hll">    <span class="kd">final</span> <span class="n">BukkitSchedulerMock</span> <span class="n">scheduler</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BukkitSchedulerMock</span><span class="p">();</span>
-</span><span class="hll">    <span class="k">try</span> <span class="p">(</span><span class="n">MockedStatic</span><span class="o">&lt;</span><span class="n">Bukkit</span><span class="o">&gt;</span> <span class="n">bukkit</span> <span class="o">=</span> <span class="n">mockStatic</span><span class="p">(</span><span class="n">Bukkit</span><span class="p">.</span><span class="na">class</span><span class="p">))</span> <span class="p">{</span>
-</span><span class="hll">        <span class="n">bukkit</span><span class="p">.</span><span class="na">when</span><span class="p">(</span><span class="n">Bukkit</span><span class="p">::</span><span class="n">getScheduler</span><span class="p">).</span><span class="na">thenReturn</span><span class="p">(</span><span class="n">scheduler</span><span class="p">);</span>
-</span>        <span class="p">...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1" hl_lines="3-5"
+@Test
+void testMethod {
+    final BukkitSchedulerMock scheduler = new BukkitSchedulerMock();
+    try (MockedStatic&lt;Bukkit&gt; bukkit = mockStatic(Bukkit.class)) {
+        bukkit.when(Bukkit::getScheduler).thenReturn(scheduler);
+        ...
+    }
+}</code></p>
 <p>Now you can use the scheduler object for several things. First if you want to perform a single or multiple ticks,
 you can call the methods <code>performTick()</code> or <code>performTicks(long)</code>:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scheduler</span><span class="p">.</span><span class="na">performTick</span><span class="p">();</span>
-<span class="n">scheduler</span><span class="p">.</span><span class="na">performTicks</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+scheduler.performTick();
+scheduler.performTicks(20);</code></p>
 <p>We also have a method that allows to get the number of ticks since the <code>BukkitSchedulerMock</code> was created.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scheduler</span><span class="p">.</span><span class="na">getCurrentTick</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+scheduler.getCurrentTick();</code></p>
 <p>There are some additional features of this scheduler:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="n">scheduler</span><span class="p">.</span><span class="na">shutdown</span><span class="p">();</span>
-<span class="n">scheduler</span><span class="p">.</span><span class="na">setShutdownTimeout</span><span class="p">(</span><span class="kt">long</span><span class="p">);</span>
-<span class="n">scheduler</span><span class="p">.</span><span class="na">waitAsyncTasksFinished</span><span class="p">();</span>
-<span class="n">scheduler</span><span class="p">.</span><span class="na">getNumberOfQueuedAsyncTasks</span><span class="p">();</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>java linenums="1"
+scheduler.shutdown();
+scheduler.setShutdownTimeout(long);
+scheduler.waitAsyncTasksFinished();
+scheduler.getNumberOfQueuedAsyncTasks();</code></p>
 
   
 

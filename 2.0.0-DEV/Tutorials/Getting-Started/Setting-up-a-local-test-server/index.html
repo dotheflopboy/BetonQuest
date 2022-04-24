@@ -2078,9 +2078,8 @@ paper-X.YY.Z-100.jar -&gt; paper.jar</p>
 Open your text editor and create a file named <code>start.bat</code> (For Linux and Mac: Create a <code>start.sh</code> file instead).
 Place it in the freshly created folder.
 Open it and copy this into it:
-<div class="highlight"><pre><span></span><code>java -Xms1G -Xmx1G -jar paper.jar --nogui
-pause
-</code></pre></div>
+<code>java -Xms1G -Xmx1G -jar paper.jar --nogui
+pause</code>
 This script tells java to search for a file named <code>paper.jar</code>.
 The <code>1G</code> setting in both the <code>-Xms</code> and <code>-Xmx</code> options is how much RAM you want to give to the server 
 (<code>1G</code> = 1 GigaByte RAM, <code>2G</code> = 2 GigaByte RAM, <code>700M</code> for 700 MegaBytes, etc.). You should not need more then 1GB in most

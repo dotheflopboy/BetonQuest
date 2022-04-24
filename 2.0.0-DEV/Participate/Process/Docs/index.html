@@ -2015,9 +2015,8 @@ fix something or make other changes.</p>
 It will be available on 
 <a href="http://127.0.0.1:8000/" target="_blank">127.0.0.1:8000</a>
 by default.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdocs serve --dirtyreload <span class="c1"># (1)</span>
-</code></pre></div>
-</td></tr></table>
+<p><code>bash linenums="1" 
+mkdocs serve --dirtyreload # (1)</code></p>
 <ol>
 <li><code>--dirtyreload</code> is an optional argument that determines that only changed files will be re-build.
    This drastically decreases build time. However, it may lead to inaccurate navigation within your site.
@@ -2031,9 +2030,8 @@ The preview updates whenever you click outside of IntelliJ or trigger a file sav
 <p>You can also execute this variation to host the website in your local network.
 This can be useful for testing changes on different devices but is not needed for most tasks.
 Make sure the hosting device's firewall exposes the port 8000.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>mkdocs serve -a <span class="m">0</span>.0.0.0:8000
-</code></pre></div>
-</td></tr></table></p>
+<code>BASH linenums="1"
+mkdocs serve -a 0.0.0.0:8000</code></p>
 </details>
 <p>We use the <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs theme</a> for our documentation.
 Check <a href="https://squidfunk.github.io/mkdocs-material/">their documentation</a> to see all custom elements and features.</p>

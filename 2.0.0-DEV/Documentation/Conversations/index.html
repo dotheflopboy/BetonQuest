@@ -2112,30 +2112,30 @@
 <h2 id="general-information">General Information<a class="headerlink" href="#general-information" title="Permanent link">🔗</a></h2>
 <p>Each conversation must define name of the NPC 
 (some conversations can be not bound to any NPC, so it’s important to specify it even though an NPC will have a name) and his initial options.
-<div class="highlight"><pre><span></span><code><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span><span class="w"></span>
-<span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
-<span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span><span class="w"></span>
-<span class="nt">final_events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event1, event2</span><span class="w"></span>
-<span class="nt">interceptor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
-<span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Some text in default language</span><span class="w"></span>
-<span class="w">    </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event3, event4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">condition1, !condition2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">pointers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reply1, reply2</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;3This</span><span class="nv"> </span><span class="s">ends</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">conversation&#39;</span><span class="w"></span>
-<span class="nt">player_options</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">reply1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">en</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text in English</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tekst po polsku</span><span class="w"></span>
-<span class="w">    </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event5</span><span class="w"></span>
-<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;!condition3&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option2</span><span class="w"></span>
-<span class="w">  </span><span class="nt">reply2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Text</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="se">&#39;&#39;</span><span class="nv"> </span><span class="s">character&#39;</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+quester: Name
+first: option1, option2
+stop: 'true'
+final_events: event1, event2
+interceptor: simple
+NPC_options:
+  option1:
+    text: Some text in default language
+    events: event3, event4
+    conditions: condition1, !condition2
+    pointers: reply1, reply2
+  option2:
+    text: '&amp;3This ends the conversation'
+player_options:
+  reply1:
+    text:
+      en: Text in English
+      pl: Tekst po polsku
+    event: event5
+    condition: '!condition3'
+    pointer: option2
+  reply2:
+    text: 'Text containing '' character'</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Configuration files use YAML syntax. Google it if you don't know anything about it. Main rule is that you must use two spaces instead of tabs when going deeper into the hierarchy tree. If you want to write <code>'</code> character, you must double it and surround the whole text with another <code>'</code> characters. When writing <code>true</code> or <code>false</code> it also needs to be surrounded with <code>'</code>. If you want to start the line with <code>&amp;</code> character, the whole line needs to be surrounded with <code>'</code>. You can check if the file is correct using <a href="http://www.yamllint.com">this tool</a>.</p>
@@ -2171,11 +2171,11 @@
 </div>
 <h2 id="translations">Translations<a class="headerlink" href="#translations" title="Permanent link">🔗</a></h2>
 <p>As you can see in default conversation, there are additional messages in other languages. That's because you can translate your conversations into multiple languages. The players will be albe to choose their preferred one with <strong>/questlang</strong> command. You can translate every NPC/player option and quester's name. You do this like this:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">quester</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">en</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Innkeeper</span><span class="w"></span>
-<span class="w">  </span><span class="nt">pl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Karczmarz</span><span class="w"></span>
-<span class="w">  </span><span class="nt">de</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gastwirt</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+quester:
+  en: Innkeeper
+  pl: Karczmarz
+  de: Gastwirt</code></p>
 <p>As said before, the same rule applies to all options and quester's name. The player can choose only from languages present in <em>messages.yml</em>, and if there will be no translation to this language in the conversation, the plugin will fall back to the default language, as defined in <em>config.yml</em>. If that one is not defined, there will be an error.</p>
 <p>You can also translate journal entries, quest cancelers and <code>message</code> events, more about that later.</p>
 <h2 id="conversation-displaying">Conversation displaying<a class="headerlink" href="#conversation-displaying" title="Permanent link">🔗</a></h2>
@@ -2231,28 +2231,25 @@ This means that it first tries to use the <code>packet</code> interceptor. If th
 that you want to be excluded from interception. In this case you can just set <code>interceptor: none</code> inside your conversation file.</p>
 <h2 id="advanced-extends">Advanced: Extends<a class="headerlink" href="#advanced-extends" title="Permanent link">🔗</a></h2>
 <p>Conversation also supports the concept of inheritance. Any option can include the key <code>extends</code> with a comma delimited list of other options of the same time. The first option that does not have any false conditions will have it's text, pointers and events merged with the extending option. The extended option may itself extend other options. Infinite loops are detected.</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">## Normal Conversation Start</span><span class="w"></span>
-<span class="w">  </span><span class="nt">start</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;What</span><span class="nv"> </span><span class="s">can</span><span class="nv"> </span><span class="s">I</span><span class="nv"> </span><span class="s">do</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">you&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">extends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tonight, today</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">## Useless addition as example</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tonight</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Always false</span><span class="w"></span>
-<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">random 0-1</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv"> </span><span class="s">tonight?&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">extends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main_menu</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">today</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;</span><span class="nv"> </span><span class="s">today?&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">extends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main_menu</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1">## Main main_menu</span><span class="w"></span>
-<span class="w w-Error"> </span><span class="nt">main_menu</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">pointers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">i_have_questions, bye</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML
+NPC_options:</p>
+<p>## Normal Conversation Start
+  start:
+    text: 'What can I do for you'
+    extends: tonight, today</p>
+<p>## Useless addition as example
+  tonight:
+    # Always false
+    condition: random 0-1
+    text: ' tonight?'
+    extends: main_menu</p>
+<p>today:
+    text: ' today?'
+    extends: main_menu</p>
+<p>## Main main_menu
+ main_menu:
+   pointers: i_have_questions, bye
+```
 In the above example, the option <em>start</em> is extended by both <em>tonight</em> and <em>today</em>, both of whom are extended by <em>main_menu</em>. As <em>tonight</em> has a false condition the <em>today</em> option will win. The <em>start</em> option will have the pointers in main_menu added to it just as if they were defined directly in it and the text will be joined together from <em>today</em>. If you structure your conversation correctly you can make use of this to minimize duplication.</p>
 
   

@@ -2559,11 +2559,11 @@ Therefore, you should probably create just one <code>notifications</code> sectio
 how a notification of a certain category looks in one central place. They do not allow you to set a message though as 
 the message is an argument of the notify event! </p>
 <p>This is how a custom category looks:
-<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">money</span><span class="p">:</span><span class="w">            </span><span class="c1"># Category name</span><span class="w"></span>
-<span class="w">   </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">advancement</span><span class="w">  </span><span class="c1"># Set&#39;s the used NotifyIO</span><span class="w"></span>
-<span class="w">   </span><span class="nt">icon</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gold_ingot</span><span class="w"> </span><span class="c1"># A setting of the bossbarIO</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+notifications:
+  money:            # Category name
+   io: advancement  # Set's the used NotifyIO
+   icon: gold_ingot # A setting of the bossbarIO</code></p>
 <p>The only thing you must be careful with is the name of your custom categories. You could end up using a reserved name
 - these stem from BetonQuest's build-in notification categories. Changing these is a <a href="#built-in-categories">different feature</a>.
 A full list of all reserved names can be found below.</p>
@@ -2572,22 +2572,22 @@ A full list of all reserved names can be found below.</p>
 <p>You may notice that the "Categories" column lists two categories.
 These work exactly like the one in the <code>notify</code> event. The first existent category (from left to right) will be used.
 This allows you to change all build-in notifications with just two entries in your <em>notifications</em> section:
-<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">info</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actionbar</span><span class="w"></span>
-<span class="w">  </span><span class="nt">error</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actionbar</span><span class="w"></span>
-</code></pre></div>
+<code>YAML
+notifications:
+  info:
+    io: actionbar
+  error:
+    io: actionbar</code> 
 You can override the settings from the info/error category for any specific notification by adding it to the 
 <code>notifications</code> section. Example:
-<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">info</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actionbar</span><span class="w"></span>
-<span class="w">  </span><span class="nt">error</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actionbar</span><span class="w"></span>
-<span class="w">  </span><span class="nt">new_journal_entry</span><span class="p">:</span><span class="w">  </span><span class="c1"># The info categories settings are overridden for the new_journal_entry notification</span><span class="w"></span>
-<span class="w">    </span><span class="nt">io</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subtitle</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+notifications:
+  info:
+    io: actionbar
+  error:
+    io: actionbar
+  new_journal_entry:  # The info categories settings are overridden for the new_journal_entry notification
+    io: subtitle</code></p>
 <table>
 <thead>
 <tr>

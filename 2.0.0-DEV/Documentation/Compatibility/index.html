@@ -4753,57 +4753,46 @@ Shopkeepers, SkillAPI, Skript, Vault, WorldEdit, FastAsyncWorldEdit and WorldGua
 <p>Checks if the player has the specified skill level. The amount can be a variable or a number.
 The player needs to be on that level or higher to meet the condition.
 You can disable this behaviour by adding the <code>equal</code> argument, then the player must match the specified level exactly.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">aureliumskillslevel fighting 5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">aureliumskillslevel farming 10 equal</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+aureliumskillslevel fighting 5
+aureliumskillslevel farming 10 equal</code></p>
 <h4 id="stat-level-aureliumstatslevel">Stat level: <code>aureliumstatslevel</code><a class="headerlink" href="#stat-level-aureliumstatslevel" title="Permanent link">🔗</a></h4>
 <p>Checks if the player has the specified stat level. The amount can be a variable or a number.
 The player needs to be on that level or higher to meet the condition.
 You can disable this behaviour by adding the <code>equal</code> argument, then the player must match the specified level exactly.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">aureliumstatslevel luck 5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">aureliumstatslevel luck 10 equal</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+aureliumstatslevel luck 5
+aureliumstatslevel luck 10 equal</code></p>
 <h3 id="events">Events<a class="headerlink" href="#events" title="Permanent link">🔗</a></h3>
 <h3 id="give-skill-xp-aureliumskillsxp">Give Skill Xp : <code>aureliumskillsxp</code><a class="headerlink" href="#give-skill-xp-aureliumskillsxp" title="Permanent link">🔗</a></h3>
 <p>Adds experience to the players skill. The amount can be a variable or a number.
 The <code>level</code> argument is optional and would convert the amount to levels instead of XP points.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">aureliumskillsxp farming 5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">aureliumskillsxp farming 10 level</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+aureliumskillsxp farming 5
+aureliumskillsxp farming 10 level</code></p>
 <h2 id="brewery"><a href="https://www.spigotmc.org/resources/brewery.3082/">Brewery</a><a class="headerlink" href="#brewery" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_1">Conditions<a class="headerlink" href="#conditions_1" title="Permanent link">🔗</a></h3>
 <h4 id="drunk-drunk">Drunk: <code>drunk</code><a class="headerlink" href="#drunk-drunk" title="Permanent link">🔗</a></h4>
 <p>This condition is true if the player is drunken. Only argument is the minimal drunkness (0-100).</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">drunk 50</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+drunk 50</code></p>
 <h4 id="drunk-quality-drunkquality">Drunk Quality: <code>drunkquality</code><a class="headerlink" href="#drunk-quality-drunkquality" title="Permanent link">🔗</a></h4>
 <p>This condition is true if the player has the given drunk quality. Only argument is the minimal drunk quality (1-10).</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">drunkquality 3</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+drunkquality 3</code></p>
 <h4 id="has-brew-hasbrew">Has Brew: <code>hasbrew</code><a class="headerlink" href="#has-brew-hasbrew" title="Permanent link">🔗</a></h4>
 <p>This condition is true if the player has the given brew with the specified amount in his inventory.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">hasbrew 2 MY_BREW</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+hasbrew 2 MY_BREW</code></p>
 <h3 id="events_1">Events<a class="headerlink" href="#events_1" title="Permanent link">🔗</a></h3>
 <h4 id="give-brew-givebrew">Give Brew: <code>givebrew</code><a class="headerlink" href="#give-brew-givebrew" title="Permanent link">🔗</a></h4>
 <p>Gives the player the specified drink. The first number is the amount, and the second number is the quality of the drink.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">givebrew 1 10 MY_BREW</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+givebrew 1 10 MY_BREW</code></p>
 <h4 id="take-brew-takebrew">Take Brew: <code>takebrew</code><a class="headerlink" href="#take-brew-takebrew" title="Permanent link">🔗</a></h4>
 <p>Removes the specified drink from the players inventory. An amount needs to be specified.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">takebrew 2 MY_OTHER_BREW</span><span class="w"> </span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+takebrew 2 MY_OTHER_BREW</code></p>
 <h2 id="npcs-using-citizens">NPC's using <a href="https://www.spigotmc.org/resources/citizens.13811/" target="_blank">Citizens</a><a class="headerlink" href="#npcs-using-citizens" title="Permanent link">🔗</a></h2>
 <p>If you have this plugin you can use it's NPCs for conversations. I highly recommend you installing it,
 it's NPCs are way more immersive. Having Citizens also allows you to use NPCKill objective and to have moving NPC's.</p>
@@ -4819,16 +4808,16 @@ setting <code>acceptNPCLeftClick</code> in the config.yml to <code>true</code>.<
  The NPCs ID is the first argument, the distance is the second. If the npc is despawned the condition will return false.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npcdistance 16 22</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npcdistance 16 22</code></p>
 </div>
 <h4 id="npc-location-npclocation">NPC location: <code>npclocation</code><a class="headerlink" href="#npc-location-npclocation" title="Permanent link">🔗</a></h4>
 <p><strong>persistent</strong>, <strong>static</strong></p>
 <p>This condition will return true if a npc is close to a location. First argument is the id of the NPC, second the location and third the maximum distance to the location that the npc is allowed to have.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npclocation 16 4.0;14.0;-20.0;world 22</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npclocation 16 4.0;14.0;-20.0;world 22</code></p>
 </div>
 <h4 id="npc-region-npcregion">NPC region: <code>npcregion</code><a class="headerlink" href="#npc-region-npcregion" title="Permanent link">🔗</a></h4>
 <p><strong>persistent</strong>, <strong>static</strong></p>
@@ -4839,8 +4828,8 @@ setting <code>acceptNPCLeftClick</code> in the config.yml to <code>true</code>.<
 <p>This condition will return true if a npc is inside a region. First argument is the id of the npc second is the name of the region.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npcregion 16 spawn</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npcregion 16 spawn</code></p>
 </div>
 <h3 id="events_2">Events<a class="headerlink" href="#events_2" title="Permanent link">🔗</a></h3>
 <h4 id="move-npc-movenpc">Move NPC: <code>movenpc</code><a class="headerlink" href="#move-npc-movenpc" title="Permanent link">🔗</a></h4>
@@ -4855,22 +4844,22 @@ You can also specify additional arguments: <code>block</code> will block the NPC
 Move event can fail if the NPC is already moving for another player.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">movenpc 121 100;200;300;world,105;200;280;world block wait:20 done:msg_were_here,give_reward fail:msg_cant_go,give_reward</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+movenpc 121 100;200;300;world,105;200;280;world block wait:20 done:msg_were_here,give_reward fail:msg_cant_go,give_reward</code></p>
 </div>
 <h4 id="stop-moving-npc-stopnpc">Stop moving NPC: <code>stopnpc</code><a class="headerlink" href="#stop-moving-npc-stopnpc" title="Permanent link">🔗</a></h4>
 <p>This will stop all current move tasks for the npc with the given ID.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">stopnpc 16</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+stopnpc 16</code></p>
 </div>
 <h4 id="teleport-npc-teleportnpc">Teleport NPC: <code>teleportnpc</code><a class="headerlink" href="#teleport-npc-teleportnpc" title="Permanent link">🔗</a></h4>
 <p>This event will teleport the NPC with the given ID to the given location.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">teleportnpc 53 100;200;300;world</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+teleportnpc 53 100;200;300;world</code></p>
 </div>
 <h3 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">🔗</a></h3>
 <h4 id="npc-interact-npcinteract">NPC Interact: <code>npcinteract</code><a class="headerlink" href="#npc-interact-npcinteract" title="Permanent link">🔗</a></h4>
@@ -4878,8 +4867,8 @@ Move event can fail if the NPC is already moving for another player.</p>
 The first argument is number (ID of the NPC), and the second is optional <code>cancel</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npcinteract 3 cancel conditions:sneak events:steal</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npcinteract 3 cancel conditions:sneak events:steal</code></p>
 </div>
 <h4 id="npc-kill-npckill">NPC Kill: <code>npckill</code><a class="headerlink" href="#npc-kill-npckill" title="Permanent link">🔗</a></h4>
 <p>The NPC kill objective requires the player to kill a NPC with the given ID. You can also define how many times the NPC
@@ -4890,8 +4879,8 @@ optionally with the notification interval after a colon.</p>
 <code>left</code> is the amount of NPCs still needed to kill and <code>total</code> is the amount of NPCs initially required.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npckill 16 amount:3 events:reward notify</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npckill 16 amount:3 events:reward notify</code></p>
 </div>
 <h4 id="npc-range-npcrange">NPC Range: <code>npcrange</code><a class="headerlink" href="#npc-range-npcrange" title="Permanent link">🔗</a></h4>
 <p>The player has to enter/leave a circle with the given radius around the NPC to complete this objective.
@@ -4901,8 +4890,8 @@ The types <code>enter</code>, <code>leave</code> force the player to actually en
 This means that <code>enter</code> is not completed when the player gets the objective and is already in the range, while <code>inside</code> is instantly completed.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">npcrange 3,5 enter 20 events:master_inRange</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npcrange 3,5 enter 20 events:master_inRange</code></p>
 </div>
 <h2 id="denizen"><a href="http://dev.bukkit.org/bukkit-plugins/denizen/">Denizen</a><a class="headerlink" href="#denizen" title="Permanent link">🔗</a></h2>
 <h3 id="events_3">Events<a class="headerlink" href="#events_3" title="Permanent link">🔗</a></h3>
@@ -4910,8 +4899,8 @@ This means that <code>enter</code> is not completed when the player gets the obj
 <p>With this event you can fire Denizen task scripts. Don't confuse it with <code>skript</code> event, these are different. The first and only argument is the name of the script.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">script beton</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+script beton</code></p>
 </div>
 <h2 id="effectlib"><a href="http://dev.bukkit.org/bukkit-plugins/effectlib/">EffectLib</a><a class="headerlink" href="#effectlib" title="Permanent link">🔗</a></h2>
 <p>If you install this plugin on your server you will be able to set a particle effect on NPCs with conversations and use <code>particle</code> event.</p>
@@ -4925,24 +4914,24 @@ Each effect is defined as a separate subsection and consists of EffectLib option
 <code>conditions</code> is a list of conditions the player has to meet in order to see the effect.
 BetonQuest will find the first effect which can be displayed and show it to the player.
 <code>interval</code> controls how often the effect is displayed (in ticks). The effect will be fired from the exact location of the NPC, upwards.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">npc_effects</span><span class="p">:</span><span class="w"></span>
-<span class="w">   </span><span class="nt">check_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w"></span>
-<span class="w">   </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-<span class="w">   </span><span class="nt">farmer</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VortexEffect</span><span class="w"></span>
-<span class="w">      </span><span class="nt">iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"></span>
-<span class="w">      </span><span class="nt">particle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">crit_magic</span><span class="w"></span>
-<span class="w">      </span><span class="nt">helixes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w"></span>
-<span class="w">      </span><span class="nt">circles</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">grow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">radius</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w"></span>
-<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
-<span class="w">      </span><span class="nt">npcs</span><span class="p">:</span><span class="w"></span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="w">      </span><span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!con_tag_started&#39;</span><span class="w"></span>
-<span class="w">         </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;!con_tag_finished&#39;</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+npc_effects:
+   check_interval: 50
+   disabled: false
+   farmer:
+      class: VortexEffect
+      iterations: 20
+      particle: crit_magic
+      helixes: 3
+      circles: 1
+      grow: 0.1
+      radius: 0.5
+      interval: 30
+      npcs:
+         - 1
+      conditions:
+         - '!con_tag_started'
+         - '!con_tag_finished'</code></p>
 <h3 id="events_4">Events<a class="headerlink" href="#events_4" title="Permanent link">🔗</a></h3>
 <h4 id="particle-particle">Particle: <code>particle</code><a class="headerlink" href="#particle-particle" title="Permanent link">🔗</a></h4>
 <p>This event will load an effect defined in <code>effects</code> section
@@ -4953,19 +4942,19 @@ it on that location. If you add <code>private</code> argument the effect will on
 be displayed to the player for which you ran the event.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<p><div class="highlight"><pre><span></span><code><span class="nt">effects</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">beton</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HelixEffect</span><span class="w"></span>
-<span class="w">    </span><span class="nt">iterations</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
-<span class="w">    </span><span class="nt">particle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">smoke</span><span class="w"></span>
-<span class="w">    </span><span class="nt">helixes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="w">    </span><span class="nt">circles</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"></span>
-<span class="w">    </span><span class="nt">grow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w"></span>
-<span class="w">    </span><span class="nt">radius</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">playEffect</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">particle beton loc:100;200;300;world;180;-90 private</span><span class="w"></span>
-</code></pre></div></p>
+<p><code>YAML
+effects:
+  beton:
+    class: HelixEffect
+    iterations: 100
+    particle: smoke
+    helixes: 5
+    circles: 20
+    grow: 3
+    radius: 30</code>
+<code>YAML
+events:
+  playEffect: particle beton loc:100;200;300;world;180;-90 private</code></p>
 </div>
 <h2 id="heroes"><a href="http://dev.bukkit.org/bukkit-plugins/heroes/">Heroes</a><a class="headerlink" href="#heroes" title="Permanent link">🔗</a></h2>
 <p>When you install Heroes, all kills done via this plugin's skills will be counted in MobKill objectives.</p>
@@ -4974,75 +4963,80 @@ be displayed to the player for which you ran the event.</p>
 <p>This condition checks the classes of the player. The first argument must be <code>primary</code>, <code>secondary</code> or <code>mastered</code>. Second is the name of a class or <code>any</code>. You can optionally specify <code>level:</code> argument followed by the required level of the player.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">heroesclass mastered warrior</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+heroesclass mastered warrior</code></p>
 </div>
 <h4 id="skill-heroesskill">Skill: <code>heroesskill</code><a class="headerlink" href="#skill-heroesskill" title="Permanent link">🔗</a></h4>
 <p>This condition checks if the player can use specified skill. The first argument is the name of the skill.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">heroesskill charge</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+heroesskill charge</code></p>
 </div>
 <h3 id="events_5">Events<a class="headerlink" href="#events_5" title="Permanent link">🔗</a></h3>
 <h4 id="heroes-experience-heroesexp">Heroes experience: <code>heroesexp</code><a class="headerlink" href="#heroes-experience-heroesexp" title="Permanent link">🔗</a></h4>
 <p>This event simply gives the player specified amount of Heroes experience. The first argument is either <code>primary</code> or <code>secondary</code> and it means player's class. Second one is the amount of experience to add.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">heroesexp primary 1000</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+heroesexp primary 1000</code></p>
 </div>
 <h2 id="holographicdisplays"><a href="http://dev.bukkit.org/bukkit-plugins/holographic-displays/">HolographicDisplays</a><a class="headerlink" href="#holographicdisplays" title="Permanent link">🔗</a></h2>
 <h3 id="hidden-holograms">Hidden Holograms<a class="headerlink" href="#hidden-holograms" title="Permanent link">🔗</a></h3>
 <p>Installing this plugin will enable you to create hidden holograms, which will be shown to players only if they meet specified conditions. Note that you need to have <a href="https://www.spigotmc.org/resources/protocollib.1997/">ProtocolLib</a> installed in order to hide holograms from certain players.</p>
 <p>In order to create a hologram, you have to add a <code>holograms</code> section. Add a node named as your hologram to this section and define <code>lines</code>, <code>conditions</code> and <code>location</code> subnodes. The fist one should be a list of texts - these will be the lines of a hologram. Color codes are supported. Second is a list of conditions separated by commas. Third is a location in a standard format, like in <code>teleport</code> event. An example of such hologram definition:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">holograms</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">beton</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">lines</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;bThis</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">Beton.&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;item:custom_item&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;&amp;eBeton</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">strong.&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">location</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100;200;300;world</span><span class="w"></span>
-<span class="w">    </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_some_quest, !finished_some_quest</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># How often to check conditions (optional)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">check_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+holograms:
+  beton:
+    lines:
+    - '&amp;bThis is Beton.'
+    - 'item:custom_item'
+    - '&amp;eBeton is strong.'
+    location: 100;200;300;world
+    conditions: has_some_quest, !finished_some_quest
+    # How often to check conditions (optional)
+    check_interval: 20</code></p>
 <p>A line can also represent a floating item. To do so enter the line as 'item:<code>custom_item</code>'. It will be replaced with the <code>custom_item</code> defined in the <code>items</code> section. If the Item is defined for example as map, a floating map will be seen between two lines of text.</p>
 <p>The holograms are updated every 10 seconds. If you want to make it faster, add <code>hologram_update_interval</code> option in <em>config.yml</em> file and set it to a number of ticks you want to pass between updates (one second is 20 ticks). Don't set it to 0 or negative numbers, it will result in an error.</p>
 <h3 id="npc-holograms">NPC Holograms<a class="headerlink" href="#npc-holograms" title="Permanent link">🔗</a></h3>
 <p>If Citizens is also installed then you can have holograms configured relative to an npc. Add the following:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">npc_holograms</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="c1"># How often to check conditions</span><span class="w"></span>
-<span class="w">  </span><span class="nt">check_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"></span>
+<p>```YAML
+npc_holograms:
+  # How often to check conditions
+  check_interval: 100</p>
+<p># Holograms follow npcs when they move (higher cpu usage when true)
+  follow: false</p>
+<p># Disable npc_holograms
+  disabled: false</p>
+<p># Hologram Settings
+  default:
+    # Lines in hologram
+    lines:
+      - "Some text!"
+    # Vector offset to NPC position to place hologram
+    vector: 0;3;0</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code># <span class="nv">Conditions</span> <span class="nv">to</span> <span class="nv">display</span> <span class="nv">hologram</span>
+<span class="nv">conditions</span>: <span class="nv">has_some_quest</span>, <span class="o">!</span><span class="nv">finished_some_quest</span>
 
-<span class="w">  </span><span class="c1"># Holograms follow npcs when they move (higher cpu usage when true)</span><span class="w"></span>
-<span class="w">  </span><span class="nt">follow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+# <span class="nv">NPC</span><span class="s1">&#39;</span><span class="s">s to apply these settings to. If blank, applies by default</span>
+<span class="nv">npcs</span>:
+  <span class="o">-</span> <span class="mi">0</span>
+  <span class="o">-</span> <span class="mi">22</span>
+</code></pre></div></td></tr></table></div>
 
-<span class="w">  </span><span class="c1"># Disable npc_holograms</span><span class="w"></span>
-<span class="w">  </span><span class="nt">disabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
-
-<span class="w">  </span><span class="c1"># Hologram Settings</span><span class="w"></span>
-<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Lines in hologram</span><span class="w"></span>
-<span class="w">    </span><span class="nt">lines</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;Some</span><span class="nv"> </span><span class="s">text!&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Vector offset to NPC position to place hologram</span><span class="w"></span>
-<span class="w">    </span><span class="nt">vector</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0;3;0</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1"># Conditions to display hologram</span><span class="w"></span>
-<span class="w">    </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">has_some_quest, !finished_some_quest</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1"># NPC&#39;s to apply these settings to. If blank, applies by default</span><span class="w"></span>
-<span class="w">    </span><span class="nt">npcs</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">22</span><span class="w"></span>
-</code></pre></div>
+<p>```</p>
 <p>Item lines are also supported here.</p>
 <h2 id="jobsreborn"><a href="https://www.spigotmc.org/resources/jobs-reborn.4216/">JobsReborn</a><a class="headerlink" href="#jobsreborn" title="Permanent link">🔗</a></h2>
 <p>Requires adding the following to <em>config.yml</em>:
-<div class="highlight"><pre><span></span><code><span class="nt">hook</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">jobs</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+hook:
+  jobs: 'true'</code></p>
 <h3 id="conditions_4">Conditions<a class="headerlink" href="#conditions_4" title="Permanent link">🔗</a></h3>
 <h4 id="can-level-up-nujobs_canlevel-jobname">Can Level up: <code>nujobs_canlevel {jobname}</code><a class="headerlink" href="#can-level-up-nujobs_canlevel-jobname" title="Permanent link">🔗</a></h4>
 <p>Returns true if the player can level up</p>
@@ -5050,8 +5044,8 @@ be displayed to the player for which you ran the event.</p>
 <p>Returns true if the player has this job</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">nujobs_hasjob Woodcutter</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+nujobs_hasjob Woodcutter</code></p>
 </div>
 <h4 id="job-full-nujobs_jobfull-jobname">Job Full: <code>nujobs_jobfull {jobname}</code><a class="headerlink" href="#job-full-nujobs_jobfull-jobname" title="Permanent link">🔗</a></h4>
 <p>Returns true if the job is at the maximum slots</p>
@@ -5059,8 +5053,8 @@ be displayed to the player for which you ran the event.</p>
 <p>Returns true if the player has this job, and at a level equal to or between the min/max</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">nujobs_joblevel Woodcutter 5 10</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+nujobs_joblevel Woodcutter 5 10</code></p>
 </div>
 <h3 id="events_6">Events<a class="headerlink" href="#events_6" title="Permanent link">🔗</a></h3>
 <h4 id="add-jobs-experience-nujobs_addexp-jobname-exp">Add Jobs Experience: <code>nujobs_addexp {jobname} {exp}</code><a class="headerlink" href="#add-jobs-experience-nujobs_addexp-jobname-exp" title="Permanent link">🔗</a></h4>
@@ -5133,8 +5127,8 @@ for an in-depth explanation on what contexts are and how to add them to permissi
 <p>This condition can check wands. The first argument is either <code>hand</code>, <code>inventory</code> or <code>lost</code>. If you choose <code>lost</code>, the condition will check if the player has lost a wand. If you choose <code>hand</code>, the condition will check if you're holding a wand in your hand. <code>inventory</code> will check your whole inventory instead of just the hand. In case of <code>hand</code> and <code>inventory</code> arguments you can also add optional <code>name:</code> argument followed by the name of the wand (as defined in <em>wands.yml</em> in Magic plugin) to check if it's the specific type of the wand. In the case of <code>inventory</code> you can specify an amount with <code>amount</code> and this will only return true if a player has that amount. You can also use optional <code>spells:</code> argument, followed by a list of spells separated with a comma. Each spell in this list can have defined minimal level required, after a colon.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">wand hand name:master spells:flare,missile:2</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+wand hand name:master spells:flare,missile:2</code></p>
 </div>
 <h2 id="mcmmo"><a href="https://www.spigotmc.org/resources/official-mcmmo-original-author-returns.64348/">McMMO</a><a class="headerlink" href="#mcmmo" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_6">Conditions<a class="headerlink" href="#conditions_6" title="Permanent link">🔗</a></h3>
@@ -5142,16 +5136,16 @@ for an in-depth explanation on what contexts are and how to add them to permissi
 <p>This conditions checks if the player has high enough level in the specified skill. The first argument is the name of the skill, second one is the minimum level the player needs to have to pass this condition.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mcmmolevel woodcutting 50</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+mcmmolevel woodcutting 50</code></p>
 </div>
 <h3 id="events_7">Events<a class="headerlink" href="#events_7" title="Permanent link">🔗</a></h3>
 <h4 id="add-mcmmo-experience-mcmmoexp">Add MCMMO Experience: <code>mcmmoexp</code><a class="headerlink" href="#add-mcmmo-experience-mcmmoexp" title="Permanent link">🔗</a></h4>
 <p>This event adds experience points in a specified skill. The first argument is the name of the skill, second one is the amount of experience to add.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mcmmoexp swords 1500</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+mcmmoexp swords 1500</code></p>
 </div>
 <h2 id="teamrequiem-mmocore-mmoitem-mythiclib">TeamRequiem (<a href="https://www.spigotmc.org/resources/mmocore.70575/">MMOCore</a>, <a href="https://www.spigotmc.org/resources/mmoitems-premium.39267/">MMOItem</a>, <a href="https://www.spigotmc.org/resources/mmolib.73855/">MythicLib</a>)<a class="headerlink" href="#teamrequiem-mmocore-mmoitem-mythiclib" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_7">Conditions<a class="headerlink" href="#conditions_7" title="Permanent link">🔗</a></h3>
@@ -5161,54 +5155,41 @@ instead of a class name.
 If a level has been specified the player needs to be on that level
 or higher to meet the condition.
 You can disable this behaviour by adding the <code>equal</code> argument. 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoclass * 5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoclass WARRIOR</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoclass MAGE 5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoclass MAGE 5 equal</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoclass * 5
+mmoclass WARRIOR
+mmoclass MAGE 5
+mmoclass MAGE 5 equal</code></p>
 <h4 id="mmocore-attribute-mmoattribute">MMOCore attribute: <code>mmoattribute</code><a class="headerlink" href="#mmocore-attribute-mmoattribute" title="Permanent link">🔗</a></h4>
 <p>Checks if a player has the specified attribute on the given level or higher.
 You can disable this behaviour by adding the <code>equal</code> argument. 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoclass mmoattribute strength 2</span><span class="w"> </span>
-<span class="l l-Scalar l-Scalar-Plain">mmoclass mmoattribute strength 2 equal</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoclass mmoattribute strength 2 
+mmoclass mmoattribute strength 2 equal</code></p>
 <h4 id="mmocore-profession-mmoprofession">MMOCore profession: <code>mmoprofession</code><a class="headerlink" href="#mmocore-profession-mmoprofession" title="Permanent link">🔗</a></h4>
 <p>Checks if a player has the specified profession on the given level or higher.
 You can disable this behaviour by adding the <code>equal</code> argument. 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoprofession mining 2</span><span class="w"> </span>
-<span class="l l-Scalar l-Scalar-Plain">mmoprofession mining 2 equal</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoprofession mining 2 
+mmoprofession mining 2 equal</code></p>
 <h4 id="mmoitems-item-mmoitem">MMOItems item: <code>mmoitem</code><a class="headerlink" href="#mmoitems-item-mmoitem" title="Permanent link">🔗</a></h4>
 <p>Checks if a player has the specified amount of MMOItems or more in his inventory. If no amount has been defined the default amount is one.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitem ARMOR SKELETON_CROWN</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitem GEMS SPEED_GEM 3</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitem ARMOR SKELETON_CROWN
+mmoitem GEMS SPEED_GEM 3</code></p>
 <h4 id="mmoitems-hand-mmohand">MMOItems hand: <code>mmohand</code><a class="headerlink" href="#mmoitems-hand-mmohand" title="Permanent link">🔗</a></h4>
 <p>Checks if a player holds the specified MMOItem in his hand. Checks the main hand if not specified otherwise using the <code>offhand</code> argument.
 If no amount has been defined the default amount is one.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmohand ARMOR SKELETON_CROWN</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmohand GEMS SPEED_GEM 3 offhand</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmohand ARMOR SKELETON_CROWN
+mmohand GEMS SPEED_GEM 3 offhand</code></p>
 <h4 id="mythiclib-stat-mmostat">MythicLib stat: <code>mmostat</code><a class="headerlink" href="#mythiclib-stat-mmostat" title="Permanent link">🔗</a></h4>
 <p>Checks <a href="https://github.com/mmopluginteam/mmolib/blob/master/src/main/java/net/mmogroup/mmolib/api/stat/SharedStat.java" target="_blank">these</a>
 stats that combine all sorts of stats from MMOCore and MMOItems.
 The player needs to be on the specified level or higher in order to meet this condition.
 You can disable this behaviour by adding the <code>equal</code> argument. 
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmostat DAMAGE_REDUCTION 3</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmostat DAMAGE_REDUCTION 3</code></p>
 <h3 id="objectives_2">Objectives<a class="headerlink" href="#objectives_2" title="Permanent link">🔗</a></h3>
 <h4 id="break-special-blocks-mmocorebreakblock">Break Special Blocks: <code>mmocorebreakblock</code><a class="headerlink" href="#break-special-blocks-mmocorebreakblock" title="Permanent link">🔗</a></h4>
 <p>This objective requires the player to break 
@@ -5217,18 +5198,14 @@ All three different block types and an amount can be defined. You can also send 
 the <code>notify</code> keyword optionally with the notification interval after a colon.</p>
 <p>This objective has three properties: <code>amount</code>, <code>left</code> and <code>total</code>. <code>amount</code> is the amount of blocks already broken,
 <code>left</code> is the amount of blocks still left to break and <code>total</code> is the amount of blocks initially required.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocorebreakblock 5 block:1</span><span class="w">      </span><span class="c1">#A custom block&#39;s block ID</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmocorebreakblock 64 block:STONE</span><span class="w">  </span><span class="c1">#vanilla material</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmocorebreakblock 1 block:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVy</span><span class="w"> </span><span class="c1">#... this is a heads texture data</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+mmocorebreakblock 5 block:1      #A custom block's block ID
+mmocorebreakblock 64 block:STONE  #vanilla material
+mmocorebreakblock 1 block:eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVy #... this is a heads texture data</code></p>
 <h4 id="mmocore-profession-levelup-mmoprofessionlevelup">MMOCore Profession levelup: <code>mmoprofessionlevelup</code><a class="headerlink" href="#mmocore-profession-levelup-mmoprofessionlevelup" title="Permanent link">🔗</a></h4>
 <p>This objective requires the player to level the given profession to the specified level.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoprofessionlevelup MINING 10</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoprofessionlevelup MINING 10</code></p>
 <h4 id="craft-item-mmoitemcraft">Craft item: <code>mmoitemcraft</code><a class="headerlink" href="#craft-item-mmoitemcraft" title="Permanent link">🔗</a></h4>
 <p>This objective requires the player to craft the item with the given type and id.
 It supports any MMOItem that was crafted using vanilla crafting methods, MMOItems "recipe-amounts" crafting and MMOItems station crafting.
@@ -5239,77 +5216,62 @@ to display a message each time the player advances the objective, optionally wit
 colon.</p>
 <p>This objective has three properties: <code>amount</code>, <code>left</code> and <code>total</code>. <code>amount</code> is the amount of items already crafted,
 <code>left</code> is the amount of items still needed to craft and <code>total</code> is the amount of items initially required.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemcraft SWORD STEEL_SWORD</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitemcraft HEALTH_POTION_RECIPE amount:5</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table>
+<p><code>YAML linenums="1"
+mmoitemcraft SWORD STEEL_SWORD
+mmoitemcraft HEALTH_POTION_RECIPE amount:5</code></p>
 <h4 id="upgrade-item-mmoitemupgrade">Upgrade Item: <code>mmoitemupgrade</code><a class="headerlink" href="#upgrade-item-mmoitemupgrade" title="Permanent link">🔗</a></h4>
 <p>This objective tracks if a player upgrades the given item with an upgrade consumable.<br />
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemupgrade SWORD FALCON_BLADE</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitemupgrade SWORD FALCON_BLADE</code></p>
 <h4 id="apply-gemstone-mmoitemapplygem">Apply gemstone: <code>mmoitemapplygem</code><a class="headerlink" href="#apply-gemstone-mmoitemapplygem" title="Permanent link">🔗</a></h4>
 <p>This objective is completed when the player applies the gemstone with the given gemstoneID to an item with the given
 itemType and itemID.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemapplygem SWORD CUTLASS GEM_OF_ACCURACY</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitemapplygem SWORD CUTLASS GEM_OF_ACCURACY</code></p>
 <h4 id="cast-item-ability-mmoitemcastability">Cast item ability: <code>mmoitemcastability</code><a class="headerlink" href="#cast-item-ability-mmoitemcastability" title="Permanent link">🔗</a></h4>
 <p>This objective requires the player to cast an ability using an item. The only argument is the abilityID.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemcastability LIFE_ENDER</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitemcastability LIFE_ENDER</code></p>
 <h4 id="cast-class-skill-mmocorecastskill">Cast class skill: <code>mmocorecastskill</code><a class="headerlink" href="#cast-class-skill-mmocorecastskill" title="Permanent link">🔗</a></h4>
 <p>This objective requires the player to cast a class skill. The only argument is the abilityID.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocorecastskill BACKSTAB</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmocorecastskill BACKSTAB</code></p>
 <h3 id="events_8">Events<a class="headerlink" href="#events_8" title="Permanent link">🔗</a></h3>
 <h4 id="give-mmocore-class-experience-mmoclassexperience">Give MMOCore class experience: <code>mmoclassexperience</code><a class="headerlink" href="#give-mmocore-class-experience-mmoclassexperience" title="Permanent link">🔗</a></h4>
 <p>Adds experience to the players class. The amount can be a variable or a number. The <code>level</code> argument
 is optional and would convert the amount to levels instead of XP points.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoclassexperience 150</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoclassexperience 1 level</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoclassexperience 150
+mmoclassexperience 1 level</code></p>
 <h4 id="give-mmocore-profession-experience-mmoprofessionexperience">Give MMOCore profession experience: <code>mmoprofessionexperience</code><a class="headerlink" href="#give-mmocore-profession-experience-mmoprofessionexperience" title="Permanent link">🔗</a></h4>
 <p>Adds experience in the specified player profession. The amount can be a variable or a number. The <code>level</code> argument
 is optional and would convert the amount to levels instead of XP points.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoprofessionexperience MINING 100</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoprofessionexperience CUSTOM_PROFESSION_NAME 1 level</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoprofessionexperience MINING 100
+mmoprofessionexperience CUSTOM_PROFESSION_NAME 1 level</code></p>
 <h4 id="give-class-points-mmocoreclasspoints">Give class points: <code>mmocoreclasspoints</code><a class="headerlink" href="#give-class-points-mmocoreclasspoints" title="Permanent link">🔗</a></h4>
 <p>Gives the player class points. The amount can be a variable or a number.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocoreclasspoints 1</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmocoreclasspoints 1</code></p>
 <h4 id="give-skill-points-mmocoreskillpoints">Give skill points: <code>mmocoreskillpoints</code><a class="headerlink" href="#give-skill-points-mmocoreskillpoints" title="Permanent link">🔗</a></h4>
 <p>Gives the player skill points. The amount can be a variable or a number.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocoreskillpoints 10</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmocoreskillpoints 10</code></p>
 <h4 id="give-attribute-points-mmocoreattributepoints">Give attribute points: <code>mmocoreattributepoints</code><a class="headerlink" href="#give-attribute-points-mmocoreattributepoints" title="Permanent link">🔗</a></h4>
 <p>Gives the player attribute points. The amount can be a variable or a number.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocoreattributepoints 2</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmocoreattributepoints 2</code></p>
 <h4 id="give-attribute-reallocation-points-mmocoreattributereallocationpoints">Give attribute reallocation points: <code>mmocoreattributereallocationpoints</code><a class="headerlink" href="#give-attribute-reallocation-points-mmocoreattributereallocationpoints" title="Permanent link">🔗</a></h4>
 <p>Gives the player attribute reallocation points. The amount can be a variable or a number.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmocoreattributereallocationpoints 1</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmocoreattributereallocationpoints 1</code></p>
 <h4 id="give-mmoitem-mmoitemgive">Give MMOItem: <code>mmoitemgive</code><a class="headerlink" href="#give-mmoitem-mmoitemgive" title="Permanent link">🔗</a></h4>
 <p>Gives the player predefined item. Default amount is one and can be set manually to a higher amount or a variable.
 The item can be adjusted to the players level by adding the <code>scale</code> option. If you want all items to be stacked together 
 the <code>singleStack</code> option can be set. If the player doesn't have required space in the inventory, the items will be dropped on the ground.
 You can also specify the <code>notify</code> keyword to display a message to the player about what items have been received.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemgive CONSUMABLE MANA_POTION</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitemgive CONSUMABLE MANA_POTION</code></p>
 <h4 id="take-mmoitem-mmoitemtake">Take MMOItem: <code>mmoitemtake</code><a class="headerlink" href="#take-mmoitem-mmoitemtake" title="Permanent link">🔗</a></h4>
 <p>Removes the specified item from the players inventory. Optional arguments are an amount and <code>notify</code> to send a notification
 to the player.</p>
@@ -5318,17 +5280,12 @@ option. You can use <code>Backpack</code>, <code>Inventory</code> and <code>Armo
 The backpack will not work before 2.0's item rework since the current item system does not safe custom NBT data.</p>
 <p>You can also specify <code>notify</code> keyword to display a simple message to the player about loosing items.</p>
 <p>Amount can be a variable.
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span>
-<span class="normal">5</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmoitemtake SWORD STEEL_SWORD</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitemtake SWORD STEEL_SWORD notify</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitemtake CONSUMABLE HEALTH_POTION amount:5</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitemtake CONSUMABLE BAKED_APPLES amount:2 invOrder:Backpack,Inventory</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmoitemtake ARMOR KINGS_CHESTPLATE invOrder:Armor,Backpack</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+mmoitemtake SWORD STEEL_SWORD
+mmoitemtake SWORD STEEL_SWORD notify
+mmoitemtake CONSUMABLE HEALTH_POTION amount:5
+mmoitemtake CONSUMABLE BAKED_APPLES amount:2 invOrder:Backpack,Inventory
+mmoitemtake ARMOR KINGS_CHESTPLATE invOrder:Armor,Backpack</code></p>
 <h2 id="mythicmobs"><a href="http://dev.bukkit.org/bukkit-plugins/mythicmobs/">MythicMobs</a><a class="headerlink" href="#mythicmobs" title="Permanent link">🔗</a></h2>
 <p>Having MythicMobs allows you to use MythicMobs MobKill objective and MythicMobs SpawnMob event.</p>
 <h3 id="objectives_3">Objectives<a class="headerlink" href="#objectives_3" title="Permanent link">🔗</a></h3>
@@ -5344,25 +5301,25 @@ You can add a <code>notify</code> keyword if you want to send a notification to 
 <code>left</code> is the amount of mythic mobs still needed to kill and <code>total</code> is the amount of mythic mobs initially required.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mmobkill SkeletalKnight amount:2 events:reward</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">mmobkill SnekBoss amount:2 minlevel:4 maxlevel:6 events:reward</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+mmobkill SkeletalKnight amount:2 events:reward
+mmobkill SnekBoss amount:2 minlevel:4 maxlevel:6 events:reward</code></p>
 </div>
 <h3 id="conditions_8">Conditions<a class="headerlink" href="#conditions_8" title="Permanent link">🔗</a></h3>
 <h4 id="mythicmob-distance-mythicmobdistance">MythicMob distance: <code>mythicmobdistance</code><a class="headerlink" href="#mythicmob-distance-mythicmobdistance" title="Permanent link">🔗</a></h4>
 <p>Check whether the player is near a specific MythicMobs entity. The first argument is the internal name of the mob (the one defined in MythicMobs' configuration). The second argument is the distance to check, measured in block lengths in a circular radius.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mythicmobdistance SkeletalKnight 7</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+mythicmobdistance SkeletalKnight 7</code></p>
 </div>
 <h3 id="events_9">Events<a class="headerlink" href="#events_9" title="Permanent link">🔗</a></h3>
 <h4 id="spawnmob-mspawnmob">SpawnMob: <code>mspawnmob</code><a class="headerlink" href="#spawnmob-mspawnmob" title="Permanent link">🔗</a></h4>
 <p>Spawn specified amount of MythicMobs at given location. The first argument is a location defined like <code>100;200;300;world</code>. Second is MythicMobs internal name (the one defined in MythicMobs' configuration) followed by a colon and a level. Third one is amount and it's required!</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">mspawnmob 100;200;300;world SkeletalKnight:1 5</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+mspawnmob 100;200;300;world SkeletalKnight:1 5</code></p>
 </div>
 <h2 id="placeholderapi"><a href="https://www.spigotmc.org/resources/placeholderapi.6245/">PlaceholderAPI</a><a class="headerlink" href="#placeholderapi" title="Permanent link">🔗</a></h2>
 <p>If you have this plugin, BetonQuest will add a <code>betonquest</code> placeholder to it and you will be able to use <code>ph</code> variable in your conversations.</p>
@@ -5374,25 +5331,24 @@ If you don't specify this, the plugin will assume you're using that variable in 
 The <code>variable</code> part is just a BetonQuest variable without percentage characters, like <code>point.beton.amount</code>.</p>
 <p>Testing your placeholder is easy using this command:  <br />
 <code>/papi parse &lt;PlayerName&gt; %betonquest_&lt;PackageName&gt;:&lt;VariableType&gt;.&lt;Property&gt;%</code>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">betonquest_someGreatQuest:objective.killZombies.left%</span><span class="w"></span>
-</code></pre></div>
-</td></tr></table></p>
+<code>YAML linenums="1"
+%betonquest_someGreatQuest:objective.killZombies.left%</code></p>
 <h3 id="variable-ph">Variable: <code>ph</code><a class="headerlink" href="#variable-ph" title="Permanent link">🔗</a></h3>
 <p>You can also use placeholders from other plugins in BetonQuest. Simply insert a variable starting with <code>ph</code>, the second argument should be the placeholder without percentage characters.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">ph.player_item_in_hand%</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+%ph.player_item_in_hand%</code></p>
 </div>
 <h2 id="protocollib"><a href="https://www.spigotmc.org/resources/protocollib.1997/">ProtocolLib</a><a class="headerlink" href="#protocollib" title="Permanent link">🔗</a></h2>
 <h3 id="hiding-npcs">Hiding NPC's<a class="headerlink" href="#hiding-npcs" title="Permanent link">🔗</a></h3>
 <p>Having ProtocolLib installed will let you hide Citizens NPCs if specified conditions are met.
 You can do that by adding a <code>hide_npcs</code> section in your package. 
 It allows you to assign conditions to specific NPC IDs like so:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">hide_npcs</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">killedAlready,questStarted</span><span class="w"></span>
-<span class="w">  </span><span class="nt">127</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;!questStarted&#39;</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+hide_npcs:
+  41: killedAlready,questStarted
+  127: '!questStarted'</code></p>
 <p>The interval the conditions are checked in can be configured in the <a href="../Configuration/#npc-hider-interval">config.yml</a>.</p>
 <h3 id="force-visibility-update">Force Visibility update<a class="headerlink" href="#force-visibility-update" title="Permanent link">🔗</a></h3>
 <p>You can run the <code>updatevisibility</code> event to manually update the visibility. This is useful for performance optimizations
@@ -5406,29 +5362,27 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
  </video>
 
 <p>Customize how it looks by adding the following lines:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">menu_conv_io</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">line_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span><span class="w"></span>
-<span class="w">  </span><span class="nt">refresh_delay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">180</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">npc_wrap</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;l</span><span class="nv"> </span><span class="s">&amp;r&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">npc_text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;l</span><span class="nv"> </span><span class="s">&amp;r&amp;f{npc_text}&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">npc_text_reset</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;f&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_wrap</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;r&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;r&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;r&amp;8[</span><span class="nv"> </span><span class="s">&amp;b{option_text}&amp;8</span><span class="nv"> </span><span class="s">]&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_text_reset</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;b&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_selected</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;l</span><span class="nv"> </span><span class="s">&amp;r</span><span class="nv"> </span><span class="s">&amp;r&amp;7»&amp;r</span><span class="nv"> </span><span class="s">&amp;8[</span><span class="nv"> </span><span class="s">&amp;f&amp;n{option_text}&amp;8</span><span class="nv"> </span><span class="s">]&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_selected_reset</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;f&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option_selected_wrap</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;r&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;l</span><span class="nv"> </span><span class="s">&amp;r&amp;f&amp;n&#39;</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">control_select</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jump,left_click</span><span class="w"></span>
-<span class="w">  </span><span class="nt">control_cancel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sneak</span><span class="w"></span>
-<span class="w">  </span><span class="nt">control_move</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scroll,move</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">npc_name_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chat</span><span class="w"></span>
-<span class="w">  </span><span class="nt">npc_name_align</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">center</span><span class="w"></span>
-<span class="w">  </span><span class="nt">npc_name_format</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;e{npc_name}&amp;r&#39;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">npc_name_newline_separator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML
+menu_conv_io:
+  line_length: 50
+  refresh_delay: 180</p>
+<p>npc_wrap: '&amp;l &amp;r'
+  npc_text: '&amp;l &amp;r&amp;f{npc_text}'
+  npc_text_reset: '&amp;f'
+  option_wrap: '&amp;r&amp;l &amp;l &amp;l &amp;l &amp;r'
+  option_text: '&amp;l &amp;l &amp;l &amp;l &amp;r&amp;8[ &amp;b{option_text}&amp;8 ]'
+  option_text_reset: '&amp;b'
+  option_selected: '&amp;l &amp;r &amp;r&amp;7»&amp;r &amp;8[ &amp;f&amp;n{option_text}&amp;8 ]'
+  option_selected_reset: '&amp;f'
+  option_selected_wrap: '&amp;r&amp;l &amp;l &amp;l &amp;l &amp;r&amp;f&amp;n'</p>
+<p>control_select: jump,left_click
+  control_cancel: sneak
+  control_move: scroll,move</p>
+<p>npc_name_type: chat
+  npc_name_align: center
+  npc_name_format: '&amp;e{npc_name}&amp;r'
+  npc_name_newline_separator: true
+```</p>
 <p>Where:</p>
 <ul>
 <li><code>line_length</code> - Maximum size of a line till its wrapped</li>
@@ -5460,8 +5414,8 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <p>Intercept pretty much anything sent to the player by intercepting packets sent to them. This can be enabled by default by setting the <code>default_interceptor</code> to <code>packet</code> in config.yml or per conversation by setting <code>interceptor</code> to <code>packet</code> in the top level of the conversation.</p>
 <h3 id="freeze-players-freeze">Freeze players: 'freeze'<a class="headerlink" href="#freeze-players-freeze" title="Permanent link">🔗</a></h3>
 <p>This event allows you to freeze player for the given amount of ticks:
-<div class="highlight"><pre><span></span><code><span class="nt">freezeMe</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;freeze</span><span class="nv"> </span><span class="s">100&quot;</span><span class="w"> </span><span class="c1">#Freezes the player for 5 seconds</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+freezeMe: "freeze 100" #Freezes the player for 5 seconds</code></p>
 <h2 id="quests"><a href="https://www.spigotmc.org/resources/quests.3711/">Quests</a><a class="headerlink" href="#quests" title="Permanent link">🔗</a></h2>
 <p>Quests is another questing plugin, which offers very simple creation of quests. If you don't want to spend a lot of time to write advanced quests in BetonQuest but you need a specific thing from this plugin you can use Custom Event Reward or Custom Condition Requirement. Alternatively, if you have a lot of quests written in Quests, but want to integrate them with the conversation system, you can use <code>quest</code> event and <code>quest</code> condition.</p>
 <h3 id="condition-requirement-quests">Condition Requirement (Quests)<a class="headerlink" href="#condition-requirement-quests" title="Permanent link">🔗</a></h3>
@@ -5473,16 +5427,16 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <p>This condition is met when the player has completed the specified quest. The first and only argument is the name of the quest. It it contains any spaces replace them with <code>_</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">quest stone_miner</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+quest stone_miner</code></p>
 </div>
 <h3 id="events_10">Events<a class="headerlink" href="#events_10" title="Permanent link">🔗</a></h3>
 <h4 id="quest-quest">Quest: <code>quest</code><a class="headerlink" href="#quest-quest" title="Permanent link">🔗</a></h4>
 <p>This event will start the quest for the player. The first argument must be the name of the quest, as defined in <code>name</code> option in the quest. If the name contains any spaces replace them with <code>_</code>. You can optionally add <code>check-requirements</code> argument if you want the event to respect this quest's requirements (otherwise the quest will be forced to be started).</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">quest stone_miner check-requirements</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+quest stone_miner check-requirements</code></p>
 </div>
 <h2 id="shopkeepers"><a href="http://dev.bukkit.org/bukkit-plugins/shopkeepers/">Shopkeepers</a><a class="headerlink" href="#shopkeepers" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_10">Conditions<a class="headerlink" href="#conditions_10" title="Permanent link">🔗</a></h3>
@@ -5490,16 +5444,16 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <p>This condition checks if the player owns specified (or greater) amount of shops. It doesn't matter what type these shops are. The only argument is a number - minimum amount of shops.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">shopamount 2</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+shopamount 2</code></p>
 </div>
 <h3 id="events_11">Events<a class="headerlink" href="#events_11" title="Permanent link">🔗</a></h3>
 <h4 id="open-shop-window-shopkeeper">Open shop window: <code>shopkeeper</code><a class="headerlink" href="#open-shop-window-shopkeeper" title="Permanent link">🔗</a></h4>
 <p>This event opens a trading window of a Villager. The only argument is the uniqueID of the shop. You can find it in <em>Shopkeepers/saves.yml</em> file, under <code>uniqueID</code> option.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">shopkeeper b687538e-14ce-4b77-ae9f-e83b12f0b929</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+shopkeeper b687538e-14ce-4b77-ae9f-e83b12f0b929</code></p>
 </div>
 <h2 id="skillapi"><a href="https://github.com/Sentropic/SkillAPI-s/releases">SkillAPI</a><a class="headerlink" href="#skillapi" title="Permanent link">🔗</a></h2>
 <p>This adds support for <a href="https://github.com/Sentropic/SkillAPI-s/releases">Sentropics SkillAPI fork</a>. They still update SkillAPI.  </p>
@@ -5508,15 +5462,15 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <p>This condition checks if the player has specified class or a child class of the specified one. The first argument is simply the name of a class. You can add <code>exact</code> argument if you want to check for that exact class, without checking child classes.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">skillapiclass warrior</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+skillapiclass warrior</code></p>
 </div>
 <h4 id="skillapi-level-skillapilevel">SkillAPI Level: <code>skillapilevel</code><a class="headerlink" href="#skillapi-level-skillapilevel" title="Permanent link">🔗</a></h4>
 <p>This condition checks if the player has specified or greater level is the specified class. The first argument is class name, the second one is the required level.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">skillapilevel warrior 3</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+skillapilevel warrior 3</code></p>
 </div>
 <h2 id="skript"><a href="http://dev.bukkit.org/bukkit-plugins/skript/">Skript</a><a class="headerlink" href="#skript" title="Permanent link">🔗</a></h2>
 <p>BetonQuest can also hook into Skript. Firstly, to avoid any confusion, I will refere to everything here by name of the plugin (Skript event is something else than BetonQuest event). Having Skript on your server will enable using BetonQuest events and conditions in scripts, and also trigger them by BetonQuest event.</p>
@@ -5531,35 +5485,35 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><strong>In your script</strong>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">on betonquest event &quot;concrete&quot;</span><span class="p p-Indicator">:</span><span class="w"></span>
-</code></pre></div>
+<code>YAML
+on betonquest event "concrete":</code>
 <strong>In BetonQuest</strong>
-<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">fire_concrete_script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skript concrete</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+events:
+  fire_concrete_script: skript concrete</code></p>
 </div>
 <h3 id="skript-condition">Skript condition<a class="headerlink" href="#skript-condition" title="Permanent link">🔗</a></h3>
 <p>You can check BetonQuest conditions in your scripts by using the syntax <code>player meets [betonquest] condition "id"</code>. <code>betonquest</code> is optional, and <code>id</code> is the name of the condition, as defined in the <em>conditions</em> section.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><strong>In your script</strong>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">player meets condition &quot;has_ore&quot;</span><span class="w"></span>
-</code></pre></div>
+<code>YAML
+player meets condition "has_ore"</code>
 <strong>In BetonQuest</strong>
-<div class="highlight"><pre><span></span><code><span class="nt">has_ore</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">item iron_ore:5</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+has_ore: item iron_ore:5</code></p>
 </div>
 <h3 id="skript-event">Skript event<a class="headerlink" href="#skript-event" title="Permanent link">🔗</a></h3>
 <p>You can also fire BetonQuest events with scripts. The syntax for Skript effect is <code>fire [betonquest] event "id" for player</code>. Everything else works just like in condition above.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p><strong>In your script</strong>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">fire event &quot;give_emeralds&quot; for player</span><span class="w"></span>
-</code></pre></div>
+<code>YAML
+fire event "give_emeralds" for player</code>
 <strong>In BetonQuest</strong>
-<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">give_emeralds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">give emerald:5</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+events:
+  give_emeralds: give emerald:5</code></p>
 </div>
 <h2 id="vault"><a href="http://dev.bukkit.org/bukkit-plugins/vault/">Vault</a><a class="headerlink" href="#vault" title="Permanent link">🔗</a></h2>
 <p>By installing Vault you enable Permission event and Money condition/event.</p>
@@ -5568,31 +5522,31 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 <p>Checks if the player has specified amount of money. You can specify only one argument, amount integer. It cannot be negative!</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">money 500</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+money 500</code></p>
 </div>
 <h3 id="events_12">Events<a class="headerlink" href="#events_12" title="Permanent link">🔗</a></h3>
 <h4 id="vault-money-event-money">Vault Money Event: <code>money</code><a class="headerlink" href="#vault-money-event-money" title="Permanent link">🔗</a></h4>
 <p>Deposits, withdraws or multiplies money on player's account. There is only one argument, amount of money to modify. It can be positive, negative or start with an asterisk for multiplication.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">money -100</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+money -100</code></p>
 </div>
 <h4 id="permission-permission">Permission: <code>permission</code><a class="headerlink" href="#permission-permission" title="Permanent link">🔗</a></h4>
 <p>Adds or removes a permission or a group. First argument is <code>add</code> or <code>remove</code>. It's self-explanatory. Second is <code>perm</code> or <code>group</code>. It also shouldn't be hard to figure out. Next thing is actual string you want to add/remove. At the end you can also specify world in which you want these permissions. If the world name is ommited then permission/group will be global.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">permission remove group bandit world_nether</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+permission remove group bandit world_nether</code></p>
 </div>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">🔗</a></h3>
 <h4 id="vault-money-variable-money">Vault Money Variable: <code>money</code><a class="headerlink" href="#vault-money-variable-money" title="Permanent link">🔗</a></h4>
 <p>There is only one argument in this variable, <code>amount</code> for showing money amount or <code>left:</code> followed by a number for showing the difference between it and amount of money.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">money.left:500%</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+%money.left:500%</code></p>
 </div>
 <h2 id="worldedit-or-fastasyncworldedit"><a href="http://dev.bukkit.org/bukkit-plugins/worldedit/">WorldEdit</a> or <a href="https://www.spigotmc.org/resources/fast-async-worldedit.13932/">FastAsyncWorldEdit</a><a class="headerlink" href="#worldedit-or-fastasyncworldedit" title="Permanent link">🔗</a></h2>
 <h3 id="events_13">Events<a class="headerlink" href="#events_13" title="Permanent link">🔗</a></h3>
@@ -5601,8 +5555,8 @@ on large servers if used together with the <a href="../Configuration/#npc-hider-
 If you have only a <code>.schem</code> schematic, simply append <code>.schem</code> to the schematic name.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">paste 100;200;300;world some_building noair</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+paste 100;200;300;world some_building noair</code></p>
 </div>
 <h2 id="worldguard"><a href="http://dev.bukkit.org/bukkit-plugins/worldguard/">WorldGuard</a><a class="headerlink" href="#worldguard" title="Permanent link">🔗</a></h2>
 <h3 id="conditions_13">Conditions<a class="headerlink" href="#conditions_13" title="Permanent link">🔗</a></h3>
@@ -5610,16 +5564,16 @@ If you have only a <code>.schem</code> schematic, simply append <code>.schem</co
 <p>This condition is met when the player is inside the specified region. The only argument is the name of the region.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">region beton</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+region beton</code></p>
 </div>
 <h3 id="objectives_4">Objectives<a class="headerlink" href="#objectives_4" title="Permanent link">🔗</a></h3>
 <h4 id="enter-region-region">Enter Region: <code>region</code><a class="headerlink" href="#enter-region-region" title="Permanent link">🔗</a></h4>
 <p>To complete this objective you need to enter WorldGuard region with specified name. A required argument is the name of the region and you may also pass an optional <code>entry</code> and/or <code>exit</code> to only trigger when entering or exiting a region instead of anytime inside a region.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">region beton events:kill</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+region beton events:kill</code></p>
 </div>
 
   

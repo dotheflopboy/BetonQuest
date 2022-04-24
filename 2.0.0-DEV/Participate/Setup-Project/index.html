@@ -2217,35 +2217,20 @@ instead of searching through all repositories that are defined in the project.</
 <p>If you do not already have the file, create a new file in this location: <code>&lt;HOME DIRECTORY&gt;\.m2\settings.xml</code>.
 The home directory on Windows is <code>C:\Users\&lt;YOUR USER NAME&gt;</code>.
 Then adopt or copy the following into the file:</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="nt">&lt;settings</span> <span class="na">xmlns=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;</span>
-  <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-  <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://maven.apache.org/SETTINGS/1.0.0</span>
-<span class="s">                      http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;</span><span class="nt">&gt;</span>
-
-  <span class="nt">&lt;mirrors&gt;</span>
-    <span class="nt">&lt;mirror&gt;</span>
-      <span class="nt">&lt;id&gt;</span>BetonQuest-Mirror<span class="nt">&lt;/id&gt;</span>
-      <span class="nt">&lt;url&gt;</span>https://betonquest.org/nexus/repository/default/<span class="nt">&lt;/url&gt;</span>
-      <span class="nt">&lt;mirrorOf&gt;</span>betonquest-papermc-repo,betonquest-enginehub-repo,betonquest-heroes-repo,betonquest-lumine-repo,betonquest-citizensnpcs-repo,betonquest-codemc-repo,betonquest-placeholderapi-repo,betonquest-dmulloy2-repo,betonquest-lichtspiele-repo,betonquest-elmakers-repo,betonquest-jitpack-repo,betonquest-sonatype-releases-repo,betonquest-sonatype-snapshots-repo<span class="nt">&lt;/mirrorOf&gt;</span>
-    <span class="nt">&lt;/mirror&gt;</span>
-  <span class="nt">&lt;/mirrors&gt;</span>
-
-<span class="nt">&lt;/settings&gt;</span>
-</code></pre></div>
-</td></tr></table>
+<p>````XML linenums="1"
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd"></p>
+<p><mirrors>
+    <mirror>
+      <id>BetonQuest-Mirror</id>
+      <url><a href="https://betonquest.org/nexus/repository/default/">https://betonquest.org/nexus/repository/default/</a></url>
+      <mirrorOf>betonquest-papermc-repo,betonquest-enginehub-repo,betonquest-heroes-repo,betonquest-lumine-repo,betonquest-citizensnpcs-repo,betonquest-codemc-repo,betonquest-placeholderapi-repo,betonquest-dmulloy2-repo,betonquest-lichtspiele-repo,betonquest-elmakers-repo,betonquest-jitpack-repo,betonquest-sonatype-releases-repo,betonquest-sonatype-snapshots-repo</mirrorOf>
+    </mirror>
+  </mirrors></p>
+<p></settings>
+````</p>
 <h3 id="build-on-start">Build on Start<a class="headerlink" href="#build-on-start" title="Permanent link">🔗</a></h3>
 <p>The first build of a day can take a while, because every version gets re-checked once every day.
 This is the reason, why an automatic build on startup reduces the time of following builds. It is really worth it to set it up.
@@ -2269,8 +2254,8 @@ Then run <code>pip install -r config/docs-requirements-insiders.txt</code> inste
 </details>
 <h3 id="see-your-changes-live">See your changes live<a class="headerlink" href="#see-your-changes-live" title="Permanent link">🔗</a></h3>
 <p>Run this command in IntelliJ's integrated terminal (at the bottom) to create a docs preview in your browser:</p>
-<div class="highlight"><pre><span></span><code>mkdocs serve
-</code></pre></div>
+<p><code>BASH
+mkdocs serve</code></p>
 <p>Then visit <a href="http://127.0.0.1:8000" target="_blank">127.0.0.1:8000</a> to make sure that everything works.</p>
 <hr />
 <h2 id="where-to-continue">Where to Continue?<a class="headerlink" href="#where-to-continue" title="Permanent link">🔗</a></h2>

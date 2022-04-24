@@ -2178,9 +2178,8 @@
 The variable will return <code>true</code> or <code>false</code> by default. If you add <code>papiMode</code> to the instruction it will return <code>yes</code> or <code>no</code>.  <br />
 You can translate the papiMode's result by changing the values of <code>condition_variable_met</code> <code>condition_variable_not_met</code>in 
 the <em>messages.yml</em> config.
-<div class="highlight"><pre><span></span><code>%condition.myCondition%
-%condition.myCondition.papiMode%
-</code></pre></div></p>
+<code>%condition.myCondition%
+%condition.myCondition.papiMode%</code> </p>
 <h2 id="global-point-globalpoint">Global point: <code>globalpoint</code><a class="headerlink" href="#global-point-globalpoint" title="Permanent link">🔗</a></h2>
 <p>Works the same as normal point variable but instead of displaying points from a players category it displays points in a global, player independent category.</p>
 <div class="admonition example">
@@ -2202,20 +2201,20 @@ You can add two options to that base, one will give back parts of the ULF and th
 the variable will resolve. </p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location%</span><span class="w">           </span><span class="c1"># -&gt; 325;121;814;myWorldName;12;6</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.xyz%</span><span class="w">       </span><span class="c1"># -&gt; 325 121 814 </span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.x%</span><span class="w">         </span><span class="c1"># -&gt; 325</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.y%</span><span class="w">         </span><span class="c1"># -&gt; 121</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.z%</span><span class="w">         </span><span class="c1"># -&gt; 814</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.yaw%</span><span class="w">       </span><span class="c1"># -&gt; 12</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.pitch%</span><span class="w">     </span><span class="c1"># -&gt; 6</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.world%</span><span class="w">     </span><span class="c1"># -&gt; myWorldName</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.ulfShort%</span><span class="w">  </span><span class="c1"># -&gt; 325;121;814;myWorldName</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.ulfLong%</span><span class="w">   </span><span class="c1"># -&gt; 325;121;814;myWorldName;12;6</span><span class="w"></span>
-
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.x.2%</span><span class="w">       </span><span class="c1"># -&gt; 325.16</span><span class="w"></span>
-<span class="err">%</span><span class="l l-Scalar l-Scalar-Plain">location.ulfLong.5%</span><span class="w"> </span><span class="c1"># -&gt; 325.54268;121.32186;814.45824;myWorldName;12.0;6.0</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML
+%location%           # -&gt; 325;121;814;myWorldName;12;6
+%location.xyz%       # -&gt; 325 121 814 
+%location.x%         # -&gt; 325
+%location.y%         # -&gt; 121
+%location.z%         # -&gt; 814
+%location.yaw%       # -&gt; 12
+%location.pitch%     # -&gt; 6
+%location.world%     # -&gt; myWorldName
+%location.ulfShort%  # -&gt; 325;121;814;myWorldName
+%location.ulfLong%   # -&gt; 325;121;814;myWorldName;12;6</p>
+<p>%location.x.2%       # -&gt; 325.16
+%location.ulfLong.5% # -&gt; 325.54268;121.32186;814.45824;myWorldName;12.0;6.0
+```</p>
 </div>
 <h2 id="calculate-mathematical-expression-mathcalc">Calculate mathematical expression: <code>math.calc</code><a class="headerlink" href="#calculate-mathematical-expression-mathcalc" title="Permanent link">🔗</a></h2>
 <p>This variable allows you to perform a calculation based on other variables (for example point or objective variables)
@@ -2231,10 +2230,9 @@ braces <code>{ }</code>. Inside the curly braces you have to escape with <code>\
 <code>\\</code>, to have a <code>}</code> inside your variable you need to write <code>\}</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>%math.calc:100*(15-point.reputation.amount)%
+<p><code>%math.calc:100*(15-point.reputation.amount)%
 %math.calc:objective.kill_zombies.left/objective.kill_zombies.total*100~2%
-%math.calc:-{ph.myplugin_stragee+placeholder}%
-</code></pre></div>
+%math.calc:-{ph.myplugin_stragee+placeholder}%</code></p>
 </div>
 <h2 id="npc-npc">NPC: <code>npc</code><a class="headerlink" href="#npc-npc" title="Permanent link">🔗</a></h2>
 <p>It's a very simple variable. It's replaced by the name of the NPC in player's language.</p>

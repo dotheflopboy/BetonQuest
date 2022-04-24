@@ -950,27 +950,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#make-the-npc-react-randomly" class="md-nav__link">
-    Make the NPC react randomly
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quest-gui" class="md-nav__link">
-    Quest GUI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#non-linear-objectives-in-quests" class="md-nav__link">
-    Non-Linear Objectives in Quests
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2312,27 +2291,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#make-the-npc-react-randomly" class="md-nav__link">
-    Make the NPC react randomly
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quest-gui" class="md-nav__link">
-    Quest GUI
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#non-linear-objectives-in-quests" class="md-nav__link">
-    Non-Linear Objectives in Quests
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2404,65 +2362,64 @@ Usually it's because you started a line with <code>!</code> or <code>&amp;</code
 </li>
 </ul>
 <p>Here is an example for the block objective.
-<div class="highlight"><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">mineStone</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;block</span><span class="nv"> </span><span class="s">stone</span><span class="nv"> </span><span class="s">-1</span><span class="nv"> </span><span class="s">persistent</span><span class="nv"> </span><span class="s">events:blockBroken&quot;</span><span class="w"></span>
-
-<span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">blockBroken</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;folder</span><span class="nv"> </span><span class="s">addPoint,sendNotify,checkForCompletion&quot;</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">addPoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;point</span><span class="nv"> </span><span class="s">blockCounter</span><span class="nv"> </span><span class="s">1&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">sendNotify</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;notify</span><span class="nv"> </span><span class="s">&amp;a%point.blockCounter.amount%&amp;8/&amp;210</span><span class="nv"> </span><span class="s">&amp;7stone</span><span class="nv"> </span><span class="s">broken.</span><span class="nv"> </span><span class="s">io:chat&quot;</span><span class="w"></span>
-
-<span class="w">  </span><span class="nt">checkForCompletion</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;run</span><span class="nv"> </span><span class="s">^objective</span><span class="nv"> </span><span class="s">remove</span><span class="nv"> </span><span class="s">mineStone</span><span class="nv"> </span><span class="s">^deletepoint</span><span class="nv"> </span><span class="s">blockCounter</span><span class="nv"> </span><span class="s">conditions:has10Points&quot;</span><span class="w"></span>
-
-<span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">has10Points</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;point</span><span class="nv"> </span><span class="s">blockCounter</span><span class="nv"> </span><span class="s">10&quot;</span><span class="w"></span>
-</code></pre></div></p>
+```YAML
+objectives:
+  mineStone: "block stone -1 persistent events:blockBroken"</p>
+<p>events:
+  blockBroken: "folder addPoint,sendNotify,checkForCompletion"</p>
+<p>addPoint: "point blockCounter 1"
+  sendNotify: "notify &amp;a%point.blockCounter.amount%&amp;8/&amp;210 &amp;7stone broken. io:chat"</p>
+<p>checkForCompletion: "run ^objective remove mineStone ^deletepoint blockCounter conditions:has10Points"</p>
+<p>conditions:
+  has10Points: "point blockCounter 10"
+``` </p>
 <h2 id="how-can-i-let-the-npc-say-things-across-multiple-lines">How can I let the NPC say things across multiple lines?<a class="headerlink" href="#how-can-i-let-the-npc-say-things-across-multiple-lines" title="Permanent link">🔗</a></h2>
 <p>You need to use the PIPE <code>|</code> character at the start of the multiline string.
-<div class="highlight"><pre><span></span><code><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span><span class="w"></span>
-<span class="w">  </span><span class="no">This is line one.</span><span class="w"></span>
-<span class="w">  </span><span class="no">This is line two.</span><span class="w"></span>
+```YAML
+text: |
+  This is line one.
+  This is line two.</p>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>      You
+    can also
+</code></pre></div></td></tr></table></div>
 
-<span class="w">          </span><span class="no">You</span><span class="w"></span>
-<span class="w">        </span><span class="no">can also</span><span class="w"></span>
-<span class="w">  </span><span class="no">format this using spaces.</span><span class="w"></span>
-</code></pre></div></p>
+<p>format this using spaces.
+```</p>
 <h2 id="how-to-deal-with-unresolvable-variables-that-show-0">How to deal with unresolvable variables that show "0"?<a class="headerlink" href="#how-to-deal-with-unresolvable-variables-that-show-0" title="Permanent link">🔗</a></h2>
 <p>You can just add them together using <code>math.calc</code>.
-<div class="highlight"><pre><span></span><code>%math.calc:objective.PickWheat1.left+objective.PickWheat2.left+objective.PickWheat3.left+objective.PickWheat4.left&#39;
-</code></pre></div></p>
+<code>%math.calc:objective.PickWheat1.left+objective.PickWheat2.left+objective.PickWheat3.left+objective.PickWheat4.left'</code></p>
 <h2 id="how-to-match-different-items-with-just-one-condition">How to match different items with just one condition?<a class="headerlink" href="#how-to-match-different-items-with-just-one-condition" title="Permanent link">🔗</a></h2>
 <p>If you want a player to have e.g. <code>potato + poisonous_potato = 64</code> in his inventory you can make a special item in your 
 <code>items</code> section file that matches items based of their names. 
 More specifically, you can have a <a href="../../Documentation/Reference/#block-selectors"><em>Block Selector</em></a> that is a <em>regex</em>.
 It would look like this in the example:
-<div class="highlight"><pre><span></span><code><span class="nt">items</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">anyPotato</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.*potato.*&quot;</span><span class="w"></span>
-
-<span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">hasAnyPotato</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;item</span><span class="nv"> </span><span class="s">anyPotato&quot;</span><span class="w"></span>
-</code></pre></div></p>
+```YAML
+items:
+  anyPotato: ".<em>potato.</em>"</p>
+<p>conditions:
+  hasAnyPotato: "item anyPotato"
+```</p>
 <h2 id="how-to-store-custom-text-in-a-variable-how-to-use-the-variable-objective">How to store custom text in a variable / How to use the variable objective?<a class="headerlink" href="#how-to-store-custom-text-in-a-variable-how-to-use-the-variable-objective" title="Permanent link">🔗</a></h2>
 <ol>
 <li>
 <p>Start a variable objective for the player. It serves as a variable storage:
-<div class="highlight"><pre><span></span><code><span class="nt">objectives</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">myVariableStorage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">no-chat&quot;</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+objectives:
+  myVariableStorage: "variable no-chat"</code></p>
 </li>
 <li>
 <p>Assign values to that storage using a key and a value. Both can be any text you like:
-<div class="highlight"><pre><span></span><code><span class="nt">events</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">addBlock</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">myVariableStorage</span><span class="nv"> </span><span class="s">blockName</span><span class="nv"> </span><span class="s">REDSTONE&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="nt">addLocation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;variable</span><span class="nv"> </span><span class="s">myVariableStorage</span><span class="nv"> </span><span class="s">location</span><span class="nv"> </span><span class="s">123;456;789;world&quot;</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+events:
+  addBlock: "variable myVariableStorage blockName REDSTONE"
+  addLocation: "variable myVariableStorage location 123;456;789;world"</code></p>
 </li>
 <li>
 <p>Read from your variable storage using the storages name and the data key.
-<div class="highlight"><pre><span></span><code><span class="nt">conditions</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">hasHeartBlock</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;testforblock</span><span class="nv"> </span><span class="s">%objective.myVariableStorage.location%</span><span class="nv"> </span><span class="s">%objective.myVariableStorage.blockName%&quot;</span><span class="w"></span>
-</code></pre></div></p>
+<code>YAML
+conditions:
+  hasHeartBlock: "testforblock %objective.myVariableStorage.location% %objective.myVariableStorage.blockName%"</code></p>
 </li>
 </ol>
 <h2 id="error-quester-is-not-defined">Error "Quester is not defined"<a class="headerlink" href="#error-quester-is-not-defined" title="Permanent link">🔗</a></h2>
@@ -2494,30 +2451,33 @@ on your server where your player's need to fish 100 salmons. The quest package i
 <p>Create an objective that is immediately fired upon the first interaction (this means setting the amount to one for most objectives).
 That objective must be <code>persistent</code> so it restarts immediately upon completion. It also has to be <code>global</code> so every
 player will receive it upon joining the server.
-<div class="highlight"><pre><span></span><code><span class="c1"># fish a salmon to progress the global quest</span><span class="w"></span>
-<span class="nt">gQuest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fish SALMON 1 events:gQuestProgress global persistent</span><span class="w"></span>
-</code></pre></div>
-The objective would trigger a folder event that increases a <code>globalpoint</code> variable by one and tries to run the
+```YAML</p>
+<h1 id="fish-a-salmon-to-progress-the-global-quest">fish a salmon to progress the global quest<a class="headerlink" href="#fish-a-salmon-to-progress-the-global-quest" title="Permanent link">🔗</a></h1>
+<p>gQuest: fish SALMON 1 events:gQuestProgress global persistent
+<code>``
+The objective would trigger a folder event that increases a</code>globalpoint<code>variable by one and tries to run the
 events that are fired upon completion. That globalpoint variable tracks the players combined progress.
-The "completion events" must be limited by a <code>globalpoint</code> condition that checks whether the <code>globalpoint</code> variable has
+The "completion events" must be limited by a</code>globalpoint<code>condition that checks whether the</code>globalpoint` variable has
 reached a certain value.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">events</label><label for="__tabbed_1_2">conditions</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1"># 1. increase the global variable 2. wait one tick for the change to process 3. attempt to run the completion events</span><span class="w"></span>
-<span class="nt">gQuestProgress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">folder gQuestIncrementCounter,gQuestCheckCompletion period:1 ticks</span><span class="w"></span>
-<span class="c1"># Adds 1 to the global variable</span><span class="w"></span>
-<span class="nt">gQuestIncrementCounter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">globalpoint gQuest 1</span><span class="w"></span>
-<span class="c1"># Runs completion events only when the condition is met (= the global variable reached X points)</span><span class="w"></span>
-<span class="nt">gQuestCheckCompletion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">folder gQuestNotify,gQuestOnCompletion,gDeleteObjective condition:gQuestComplete</span><span class="w"></span>
-<span class="c1"># Deletes the objective from everyone that fished a salmon after the goal was met</span><span class="w"></span>
-<span class="nt">qDeleteObjective</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;objective</span><span class="nv"> </span><span class="s">delete</span><span class="nv"> </span><span class="s">gQuest&quot;</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML</p>
+<h1 id="1-increase-the-global-variable-2-wait-one-tick-for-the-change-to-process-3-attempt-to-run-the-completion-events">1. increase the global variable 2. wait one tick for the change to process 3. attempt to run the completion events<a class="headerlink" href="#1-increase-the-global-variable-2-wait-one-tick-for-the-change-to-process-3-attempt-to-run-the-completion-events" title="Permanent link">🔗</a></h1>
+<p>gQuestProgress: folder gQuestIncrementCounter,gQuestCheckCompletion period:1 ticks</p>
+<h1 id="adds-1-to-the-global-variable">Adds 1 to the global variable<a class="headerlink" href="#adds-1-to-the-global-variable" title="Permanent link">🔗</a></h1>
+<p>gQuestIncrementCounter: globalpoint gQuest 1</p>
+<h1 id="runs-completion-events-only-when-the-condition-is-met-the-global-variable-reached-x-points">Runs completion events only when the condition is met (= the global variable reached X points)<a class="headerlink" href="#runs-completion-events-only-when-the-condition-is-met-the-global-variable-reached-x-points" title="Permanent link">🔗</a></h1>
+<p>gQuestCheckCompletion: folder gQuestNotify,gQuestOnCompletion,gDeleteObjective condition:gQuestComplete</p>
+<h1 id="deletes-the-objective-from-everyone-that-fished-a-salmon-after-the-goal-was-met">Deletes the objective from everyone that fished a salmon after the goal was met<a class="headerlink" href="#deletes-the-objective-from-everyone-that-fished-a-salmon-after-the-goal-was-met" title="Permanent link">🔗</a></h1>
+<p>qDeleteObjective: "objective delete gQuest"
+```</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1"># Complete at one hundred collected</span><span class="w"></span>
-<span class="nt">gquest_complete</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">globalpoint gquest 100</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML</p>
+<h1 id="complete-at-one-hundred-collected">Complete at one hundred collected<a class="headerlink" href="#complete-at-one-hundred-collected" title="Permanent link">🔗</a></h1>
+<p>gquest_complete: globalpoint gquest 100</p>
+<p>```</p>
 </div>
 </div>
 </div>
@@ -2539,16 +2499,18 @@ remove the event package after the event.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">objectives</label><label for="__tabbed_2_2">events</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1"># Old objective just without global &amp; persistent to make sure no one get&#39;s it automatically</span><span class="w"></span>
-<span class="nt">gQuest</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fish SALMON 1 events:gQuestProgress</span><span class="w"></span>
-<span class="c1"># Cleanup objective that is immediately completed when someone joins</span><span class="w"></span>
-<span class="l l-Scalar l-Scalar-Plain">login events:deleteOldObjective global</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML</p>
+<h1 id="old-objective-just-without-global-persistent-to-make-sure-no-one-gets-it-automatically">Old objective just without global &amp; persistent to make sure no one get's it automatically<a class="headerlink" href="#old-objective-just-without-global-persistent-to-make-sure-no-one-gets-it-automatically" title="Permanent link">🔗</a></h1>
+<p>gQuest: fish SALMON 1 events:gQuestProgress</p>
+<h1 id="cleanup-objective-that-is-immediately-completed-when-someone-joins">Cleanup objective that is immediately completed when someone joins<a class="headerlink" href="#cleanup-objective-that-is-immediately-completed-when-someone-joins" title="Permanent link">🔗</a></h1>
+<p>login events:deleteOldObjective global
+```</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="c1"># Deletes the old objective from the current player</span><span class="w"></span>
-<span class="nt">deleteOldObjective</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;objective</span><span class="nv"> </span><span class="s">delete</span><span class="nv"> </span><span class="s">gQuest&quot;</span><span class="w"></span>
-</code></pre></div>
+<p>```YAML</p>
+<h1 id="deletes-the-old-objective-from-the-current-player">Deletes the old objective from the current player<a class="headerlink" href="#deletes-the-old-objective-from-the-current-player" title="Permanent link">🔗</a></h1>
+<p>deleteOldObjective: "objective delete gQuest"
+```</p>
 </div>
 </div>
 </div>
@@ -2564,10 +2526,10 @@ Firstly, create as many objectives as you want. We are going to be working with 
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">objectives</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">Objective_A</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Objective_Arguments events:Rewards</span><span class="w"></span>
-<span class="nt">Objective_B</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Objective_Arguments events:Rewards</span><span class="w"></span>
-<span class="nt">Objective_C</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Objective_Arguments events:Rewards</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+Objective_A: Objective_Arguments events:Rewards
+Objective_B: Objective_Arguments events:Rewards
+Objective_C: Objective_Arguments events:Rewards</code></p>
 </div>
 </div>
 </div>
@@ -2576,10 +2538,10 @@ the player for these objectives:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">conditions</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">Has_Objective_A</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">objective Objective_A</span><span class="w"></span>
-<span class="nt">Has_Objective_B</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">objective Objective_B</span><span class="w"></span>
-<span class="nt">Has_Objective_C</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">objective Objective_C</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+Has_Objective_A: objective Objective_A
+Has_Objective_B: objective Objective_B
+Has_Objective_C: objective Objective_C</code></p>
 </div>
 </div>
 </div>
@@ -2590,8 +2552,8 @@ the condition with <code>'</code> or <code>"</code> depending on your preference
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">conditions</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">All_Objectives_Done</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;and</span><span class="nv"> </span><span class="s">!Has_Objective_A,!Has_Objective_B,!Has_Objective_C&#39;</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+All_Objectives_Done: 'and !Has_Objective_A,!Has_Objective_B,!Has_Objective_C'</code></p>
 </div>
 </div>
 </div>
@@ -2601,8 +2563,8 @@ objectives.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">events</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="nt">Rewards</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RewardEventArguments condition:All_Objectives_Done</span><span class="w"></span>
-</code></pre></div>
+<p><code>YAML
+Rewards: RewardEventArguments condition:All_Objectives_Done</code></p>
 </div>
 </div>
 </div>

@@ -2032,10 +2032,9 @@
 meets the project's requirements regarding code style and quality.
 GitHub Actions (automated code check on GitHub) will also verify these requirements when you open the pull request.</p>
 <p>If any requirements are not met, <code>mvn verify</code> will fail with this log message:
-<div class="highlight"><pre><span></span><code>[INFO] ------------------------------------------------------------------------
+<code>[INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-</code></pre></div>
+[INFO] ------------------------------------------------------------------------</code>
 IntelliJ may also show something like <code>Failed to execute goal</code>. Here's a guide how to fix any requirement violations:</p>
 <div class="admonition note">
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">PMD</label><label for="__tabbed_1_2">SpotBugs</label><label for="__tabbed_1_3">CheckStyle</label><label for="__tabbed_1_4">EditorConfig</label></div>
@@ -2044,11 +2043,9 @@ IntelliJ may also show something like <code>Failed to execute goal</code>. Here'
 <p>Visit the <a href="https://pmd.github.io/latest/" target="_blank"><strong>PMD Page</strong></a> for general info.
 <br><br>
 PMD mainly checks for code smells. PMD's errors look like this:
-<div class="highlight"><pre><span></span><code>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-pmd-plugin:3.14.0:check (default) on project betonquest: You have 1 PMD violation.
-</code></pre></div>
+<code>[ERROR] Failed to execute goal org.apache.maven.plugins:maven-pmd-plugin:3.14.0:check (default) on project betonquest: You have 1 PMD violation.</code>
 If you have this message you also have messages, that looks like this:
-<div class="highlight"><pre><span></span><code>[INFO] PMD Failure: org.betonquest.betonquest.BetonQuest:143 Rule:AvoidLiteralsInIfCondition Priority:3 Avoid using Literals in Conditional Statements.
-</code></pre></div>
+<code>[INFO] PMD Failure: org.betonquest.betonquest.BetonQuest:143 Rule:AvoidLiteralsInIfCondition Priority:3 Avoid using Literals in Conditional Statements.</code>
 If you read this, you may know what is wrong. If you don't know why, visit the
 <a href="https://pmd.github.io/latest/" target="_blank">PMD</a> page.
 Then you type in the rule e.g. <code>AvoidLiteralsInIfCondition</code> in the search bar and click on the rule.
@@ -2059,11 +2056,9 @@ If you still don't know how to solve it, ask the developers on Discord for help 
 <p>Visit the <a href="https://spotbugs.readthedocs.io/en/stable/index.html" target="_blank"><strong>SpotBugs Page</strong></a> for general info.
 <br><br>
 SpotBugs searches for additional problems, most of them are potential bugs. SpotBugs' errors look like this:
-<div class="highlight"><pre><span></span><code>Failed to execute goal com.github.spotbugs:spotbugs-maven-plugin:4.2.2:check (default) on project betonquest: failed with 1 bugs and 0 errors
-</code></pre></div>
+<code>Failed to execute goal com.github.spotbugs:spotbugs-maven-plugin:4.2.2:check (default) on project betonquest: failed with 1 bugs and 0 errors</code>
 If your log contains such a message, it will also contain another message that looks like this:
-<div class="highlight"><pre><span></span><code>[ERROR] Medium: Null passed for non-null parameter of org.betonquest.betonquest.utils.PlayerConverter.getPlayer(String) in org.betonquest.betonquest.BetonQuest.condition(String, ConditionID) [org.betonquest.betonquest.BetonQuest, org.betonquest.betonquest.BetonQuest] Method invoked at BetonQuest.java:[line 349]Known null at BetonQuest.java:[line 344] NP_NULL_PARAM_DEREF
-</code></pre></div>
+<code>[ERROR] Medium: Null passed for non-null parameter of org.betonquest.betonquest.utils.PlayerConverter.getPlayer(String) in org.betonquest.betonquest.BetonQuest.condition(String, ConditionID) [org.betonquest.betonquest.BetonQuest, org.betonquest.betonquest.BetonQuest] Method invoked at BetonQuest.java:[line 349]Known null at BetonQuest.java:[line 344] NP_NULL_PARAM_DEREF</code>
 SpotBugs errors are a little complicated to read,
 but if you find e.g. <code>NP_NULL_PARAM_DEREF</code> at the end of the line you can simply search it on the
 <a href="https://spotbugs.readthedocs.io/en/stable/bugDescriptions.html" target="_blank">SpotBugs</a> page.
@@ -2076,8 +2071,7 @@ CheckStyle checks the code formatting and style. We have only configured two che
 The first check is the import order, and the second check is that you do not use star imports,
 excepting some junit imports.
 There is only a basic check for the imports, and it looks like this:
-<div class="highlight"><pre><span></span><code>[ERROR] src/main/java/org/betonquest/betonquest/BetonQuest.java:[16,1] (imports) ImportOrder: Wrong order for &#39;edu.umd.cs.findbugs.annotations.SuppressFBWarnings&#39; import.
-</code></pre></div>
+<code>[ERROR] src/main/java/org/betonquest/betonquest/BetonQuest.java:[16,1] (imports) ImportOrder: Wrong order for 'edu.umd.cs.findbugs.annotations.SuppressFBWarnings' import.</code>
 CheckStyle is very simple to read, normally it is in your language and self explaining.<br />
 In the above error you can find e.g <code>ImportOrder</code> and you can search on the
 <a href="https://checkstyle.sourceforge.io/checks.html" target="_blank">CheckStyle</a> page for it.
@@ -2090,13 +2084,11 @@ If you need help solving an issue here, you can also ask us on our Discord for h
 EditorConfig it natively supported by many IDEs and editors.
 It checks for some really basic formatting like brackets, line endings, indention and some more.
 EditorConfig violations look like this:
-<div class="highlight"><pre><span></span><code>[ERROR] There are .editorconfig violations. You may want to run
+<code>[ERROR] There are .editorconfig violations. You may want to run
 [ERROR]     mvn editorconfig:format
-[ERROR] to fix them automagically.
-</code></pre></div>
+[ERROR] to fix them automagically.</code>
 If your log contains such a message, it will also contain another message that looks like this if you want to solve it manual:
-<div class="highlight"><pre><span></span><code>[ERROR] src\main\java\org\betonquest\betonquest\BetonQuest.java@284,54: Delete 5 characters - violates trim_trailing_whitespace = true, reported by org.ec4j.linters.TextLinter
-</code></pre></div>
+<code>[ERROR] src\main\java\org\betonquest\betonquest\BetonQuest.java@284,54: Delete 5 characters - violates trim_trailing_whitespace = true, reported by org.ec4j.linters.TextLinter</code>
 We recommend running <code>mvn editorconfig:format</code> or use an IDE that support EditorConfig.</p>
 </div>
 </div>
