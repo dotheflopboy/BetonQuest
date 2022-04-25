@@ -2678,13 +2678,13 @@ next login.</p>
 <tbody>
 <tr>
 <td><em>time</em></td>
-<td>any number</td>
+<td>Any Number</td>
 <td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
 <td>The time after which the objective is completed.</td>
 </tr>
 <tr>
 <td><em>unit</em></td>
-<td>keyword</td>
+<td>Keyword</td>
 <td>minutes</td>
 <td>The unit of time. Either <code>minutes</code>, <code>seconds</code> or <code>ticks</code>.</td>
 </tr>
@@ -2745,17 +2745,87 @@ add them right after type of objective.</p>
 </code></pre></div>
 </div>
 <h2 id="fishing-fish">Fishing: <code>fish</code><a class="headerlink" href="#fishing-fish" title="Permanent link">🔗</a></h2>
-<p>Requires the player to catch something with the fishing rod. It doesn't have to be a fish, it can also be a treasure or
-junk. The first argument is a <a href="../Reference/#block-selectors">Block Selector</a> of the item to catch.
-Second argument must be the amount of fish to catch. You can also add the <code>notify</code> argument if you want to display
-progress, optionally with the notification interval after a colon.</p>
-<p>The fish objective has three properties: <code>left</code> is the amount of fish still left to be caught, <code>amount</code> is the amount of
-already caught fish and <code>total</code> is the initially required amount of fish needed to be caught.</p>
-<div class="admonition example">
+<p>Requires the player to catch something with the fishing rod. It doesn't have to be a fish, it can also be any other item.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Syntax</th>
+<th>Default Value</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>item</em></td>
+<td><a href="../Reference/#block-selectors">Block Selector</a></td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The item that must be caught.</td>
+</tr>
+<tr>
+<td><em>amount</em></td>
+<td>Any Number</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M3.404 12.596a6.5 6.5 0 1 1 9.192-9.192 6.5 6.5 0 0 1-9.192 9.192zM2.344 2.343a8 8 0 1 0 11.313 11.314A8 8 0 0 0 2.343 2.343zM6.03 4.97a.75.75 0 0 0-1.06 1.06L6.94 8 4.97 9.97a.75.75 0 1 0 1.06 1.06L8 9.06l1.97 1.97a.75.75 0 1 0 1.06-1.06L9.06 8l1.97-1.97a.75.75 0 1 0-1.06-1.06L8 6.94 6.03 4.97z"/></svg></span></td>
+<td>The amount that must be caught.</td>
+</tr>
+<tr>
+<td><em>notifications</em></td>
+<td>notify:number</td>
+<td>notify:0</td>
+<td>Add <code>notify</code> to display a notification when a fish is caught. Optionally with the notification interval after a colon.</td>
+</tr>
+<tr>
+<td><em>hookLocation</em></td>
+<td>hookLocation:<a href="../Reference/#unified-location-formating">Location</a></td>
+<td>Everywhere</td>
+<td>The location at which the item must be caught. Range must also be defined.</td>
+</tr>
+<tr>
+<td><em>range</em></td>
+<td>range:number</td>
+<td>Everywhere</td>
+<td>The range around the <code>hookLocation</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example annotate">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">fish SALMON 5 notify events:tag_fish_caught</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="l l-Scalar l-Scalar-Plain">fish SALMON 5 notify events:tag_fish_caught (1)</span><span class="w"></span>
+<span class="l l-Scalar l-Scalar-Plain">fish COD 5 hookLocation:123;456;789;fishWorld range:10 events:giveSpecialFish (2)</span><span class="w"></span>
 </code></pre></div>
 </div>
+<ol>
+<li>Requires the player to catch 5 salmon. The player will get a notification for every caught fish.</li>
+<li>Requires the player to catch 5 cod. The rod's hook must be used in a 10 block radius around <code>x:123 y:456 z:789</code> in a world named <code>fishWorld</code>.</li>
+</ol>
+<h5> Variable Properties </h5>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Example Output</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left</td>
+<td>4</td>
+<td>The amount of fish still left to be caught.</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>6</td>
+<td>The amount of already caught fish.</td>
+</tr>
+<tr>
+<td>total</td>
+<td>10</td>
+<td>The initially required amount of fish needed to be caught.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="interact-with-entity-interact">Interact with entity: <code>interact</code><a class="headerlink" href="#interact-with-entity-interact" title="Permanent link">🔗</a></h2>
 <p>The player must click on an entity to complete this objective. The first argument is the type of a click.
 Available values are <code>right</code>, <code>left</code> and <code>any</code>.
@@ -3045,7 +3115,7 @@ by what players type in chat which is only useful when you're also using the <co
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-19T16:38:30+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-25T21:54:09+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-25</span>
       
     
   </small>
