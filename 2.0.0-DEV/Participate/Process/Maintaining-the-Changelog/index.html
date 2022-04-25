@@ -16,7 +16,7 @@
         
       
       <link rel="icon" href="../../../_media/brand/Icon/Icon32.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9+insiders-4.12.0">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11+insiders-4.13.1">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.25650c35.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b1d949c.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
@@ -37,7 +37,8 @@
     
   
   
-  <style>:root{--md-admonition-icon--example: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M160 256c0-70.7 57.3-128 128-128s128 57.3 128 128-57.3 128-128 128-128-57.3-128-128zm128 80c44.2 0 80-35.8 80-80s-35.8-80-80-80h-2.9c2.2 5.1 2.9 10.5 2.9 16 0 35.3-28.7 64-64 64-5.5 0-10.9-.7-16-2.9v2c0 45.1 35.8 80.9 80 80.9zM95.42 112.6C142.5 68.84 207.2 32 288 32c80.8 0 145.5 36.84 192.6 80.6 46.8 43.4 78.1 94.5 92.9 131.1 3.3 7.9 3.3 16.7 0 24.6-14.8 35.7-46.1 86.8-92.9 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.58-80.6C48.62 355.1 17.34 304 2.461 268.3a31.967 31.967 0 0 1 0-24.6C17.34 207.1 48.62 156 95.42 112.6zM288 80c-65.2 0-118.8 29.6-159.9 67.7-38.5 35.8-65.08 77.4-78.66 108.3 13.58 30 40.16 72.5 78.66 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7c38.5-35.8 64.2-78.3 78.7-108.3-14.5-30.9-40.2-72.5-78.7-108.3C406.8 109.6 353.2 80 288 80z"/></svg>');</style>
+  <style>:root{--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M160 256c0-70.7 57.3-128 128-128s128 57.3 128 128-57.3 128-128 128-128-57.3-128-128zm128 80c44.2 0 80-35.8 80-80s-35.8-80-80-80h-2.9c2.2 5.1 2.9 10.5 2.9 16 0 35.3-28.7 64-64 64-5.5 0-10.9-.7-16-2.9v2c0 45.1 35.8 80.9 80 80.9zM95.42 112.6C142.5 68.84 207.2 32 288 32c80.8 0 145.5 36.84 192.6 80.6 46.8 43.4 78.1 94.5 92.9 131.1 3.3 7.9 3.3 16.7 0 24.6-14.8 35.7-46.1 86.8-92.9 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.58-80.6C48.62 355.1 17.34 304 2.461 268.3a31.967 31.967 0 0 1 0-24.6C17.34 207.1 48.62 156 95.42 112.6zM288 80c-65.2 0-118.8 29.6-159.9 67.7-38.5 35.8-65.08 77.4-78.66 108.3 13.58 30 40.16 72.5 78.66 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7c38.5-35.8 64.2-78.3 78.7-108.3-14.5-30.9-40.2-72.5-78.7-108.3C406.8 109.6 353.2 80 288 80z"/></svg>');}</style>
+
 
     
     
@@ -1865,7 +1866,9 @@
       
         <li class="md-nav__item">
   <a href="#where-to-continue" class="md-nav__link">
-    Where to Continue?
+    <span class="md-ellipsis">
+      Where to Continue?
+    </span>
   </a>
   
 </li>
@@ -2000,7 +2003,9 @@
       
         <li class="md-nav__item">
   <a href="#where-to-continue" class="md-nav__link">
-    Where to Continue?
+    <span class="md-ellipsis">
+      Where to Continue?
+    </span>
   </a>
   
 </li>
@@ -2031,59 +2036,58 @@ These are general rules:</p>
 <ul>
 <li>Write user-friendly entries - they are the ones that read the changelog after all.</li>
 <li>Do not repeat the heading for individual entries 
-```
-Added:</li>
-<li><del class="critic">added</del> new conversation style: Hologram</li>
-<li>new conversation style: Hologram
-```</li>
+<div class="highlight"><pre><span></span><code>Added:
+  * <del class="critic">added</del> new conversation style: Hologram
+  * new conversation style: Hologram
+</code></pre></div></li>
 <li>Mark events, objectives etc. names with <code>`</code> around them.</li>
 </ul>
 <p>Here is a breakdown of what belongs in each section:</p>
 <details class="info">
 <summary>Added</summary>
 <p>Do not write what class or file was added, describe the feature you added.</p>
-<p><code>MD
-Added:
-  - event `teleport` allows teleportation of players
-  - Citizens event `movenpc` makes it possible to let a NPC walk to a specific location</code></p>
+<div class="highlight"><pre><span></span><code>Added:
+  <span class="k">-</span> event <span class="sb">`teleport`</span> allows teleportation of players
+  <span class="k">-</span> Citizens event <span class="sb">`movenpc`</span> makes it possible to let a NPC walk to a specific location
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Changed</summary>
 <p>Give qualified information that indicates what the user may have to be aware of.
 Do not write <code>event x has now argument y</code> - that is a new feature and belongs to <code>Added</code>. Only add to this section
 if there are changed <em>behaviours</em>.</p>
-<p><code>MD
- Changed:
-   - event `teleport` now first checks if another plugin canceled the event
-   - german translations have been updated</code></p>
+<div class="highlight"><pre><span></span><code>Changed:
+  <span class="k">-</span> event <span class="sb">`teleport`</span> now first checks if another plugin canceled the event
+  <span class="k">-</span> german translations have been updated
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Deprecated</summary>
 <p>List things that have been marked for removal. Also mention possible replacements.</p>
-<p><code>MD
- Deprecated:
-   - event `message` will be deleted, use the `notify` event instead
-   - Minecraft recently replaced material ids with namespaces. Update your items accordingly, ids will stop working soon</code></p>
+<div class="highlight"><pre><span></span><code>Deprecated:
+  <span class="k">-</span> event <span class="sb">`message`</span> will be deleted, use the <span class="sb">`notify`</span> event instead
+  <span class="k">-</span> Minecraft recently replaced material ids with namespaces. Update your items accordingly, ids will stop working soon 
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Removed</summary>
 <p>After something has been marked for removal in the category <code>Deprecated</code> it will end up here eventually.
 Repeat possible replacements.</p>
-<p><code>MD
- Removed:
-   - `message` event, use the `notify` event instead
-   - old material syntax, use material namespaces instead</code></p>
+<div class="highlight"><pre><span></span><code>Removed:
+  <span class="k">-</span> <span class="sb">`message`</span> event, use the <span class="sb">`notify`</span> event instead
+  <span class="k">-</span> old material syntax, use material namespaces instead
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Fixes</summary>
 <p>Solved bugs are listed in this category.
 Let the users know what the bug did, so they know if they were affected.
 Mention if the fix changed a behaviour.</p>
-<p><code>MD
-Fixes:
-  - event `notify` did not resolve variables correctly
-  - Citizens event `movenpc` is now more robust combined with other events like `stopnpc` and `teleportnpc`
-    - you may need to reduce the distance beetween waypoints</code></p>
+<div class="highlight"><pre><span></span><code>Fixes:
+  <span class="k">-</span> event <span class="sb">`notify`</span> did not resolve variables correctly
+  <span class="k">-</span> Citizens event <span class="sb">`movenpc`</span> is now more robust combined with other events like <span class="sb">`stopnpc`</span> and <span class="sb">`teleportnpc`</span>
+    <span class="k">-</span> you may need to reduce the distance beetween waypoints
+</code></pre></div>
 </details>
 <details class="info">
 <summary>Security</summary>
@@ -2091,10 +2095,10 @@ Fixes:
 But if something can be abused to effect server security or performance, 
 you keep the way how it can be abused secret.<br />
 <strong>DO NOT LEAK EXPLOITABLE SECURITY ISSUES!</strong></p>
-<p><code>MD
- Security:
-   - the take event is now threadsafe
-   - a deadlock in conversations was fixed</code></p>
+<div class="highlight"><pre><span></span><code>Security:
+  <span class="k">-</span> the take event is now threadsafe
+  <span class="k">-</span> a deadlock in conversations was fixed
+</code></pre></div>
 </details>
 <hr />
 <h2 id="where-to-continue">Where to Continue?<a class="headerlink" href="#where-to-continue" title="Permanent link">🔗</a></h2>
@@ -2310,10 +2314,10 @@ But maybe you are not finished yet, and you want to go back to change <a href=".
       </div>
       <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var form=document.forms.consent;form.addEventListener("submit",function(n){n.preventDefault(),__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(n){return[n,!0]}))),location.hash="",location.reload()})</script>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "search.share", "navigation.indexes", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c028271.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tabs", "navigation.tabs.sticky", "navigation.tracking", "navigation.sections", "navigation.top", "search.share", "navigation.indexes", "search.suggest"], "search": "../../../assets/javascripts/workers/search.ec8bae80.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.36b9b33b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.88faac82.min.js"></script>
       
         <script src="../../../js/timeago.min.js"></script>
       
