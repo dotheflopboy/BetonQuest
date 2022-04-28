@@ -2141,35 +2141,39 @@
 <h2 id="general-information">General Information<a class="headerlink" href="#general-information" title="Permanent link">🔗</a></h2>
 <p>Each conversation must define name of the NPC 
 (some conversations can be not bound to any NPC, so it’s important to specify it even though an NPC will have a name) and his initial options.
-<div class="highlight"><pre><span></span><code><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span><span class="w"></span>
-<span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
-<span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span><span class="w"></span>
-<span class="nt">final_events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event1, event2</span><span class="w"></span>
-<span class="nt">interceptor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
-<span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Some text in default language</span><span class="w"></span>
-<span class="w">    </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event3, event4</span><span class="w"></span>
-<span class="w">    </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">condition1, !condition2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">pointers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reply1, reply2</span><span class="w"></span>
-<span class="w">  </span><span class="nt">option2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;3This</span><span class="nv"> </span><span class="s">ends</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">conversation&#39;</span><span class="w"></span>
-<span class="nt">player_options</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">reply1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="nt">en</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text in English</span><span class="w"></span>
-<span class="w">      </span><span class="nt">pl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tekst po polsku</span><span class="w"></span>
-<span class="w">    </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event5</span><span class="w"></span>
-<span class="w">    </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;!condition3&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option2</span><span class="w"></span>
-<span class="w">  </span><span class="nt">reply2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Text</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="se">&#39;&#39;</span><span class="nv"> </span><span class="s">character&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">conversations</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">conversationName</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">quester</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Name</span><span class="w"></span>
+<span class="w">    </span><span class="nt">first</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option1, option2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">final_events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event1, event2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">interceptor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">simple</span><span class="w"></span>
+<span class="w">    </span><span class="nt">NPC_options</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">option1</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Some text in default language</span><span class="w"></span>
+<span class="w">        </span><span class="nt">events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event3, event4</span><span class="w"></span>
+<span class="w">        </span><span class="nt">conditions</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">condition1, !condition2</span><span class="w"></span>
+<span class="w">        </span><span class="nt">pointers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">reply1, reply2</span><span class="w"></span>
+<span class="w">      </span><span class="nt">option2</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&amp;3This</span><span class="nv"> </span><span class="s">ends</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">conversation&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">player_options</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">reply1</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"></span>
+<span class="w">          </span><span class="nt">en</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Text in English</span><span class="w"></span>
+<span class="w">          </span><span class="nt">pl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tekst po polsku</span><span class="w"></span>
+<span class="w">        </span><span class="nt">event</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">event5</span><span class="w"></span>
+<span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;!condition3&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">pointer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">option2</span><span class="w"></span>
+<span class="w">      </span><span class="nt">reply2</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">text</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;Text</span><span class="nv"> </span><span class="s">containing</span><span class="nv"> </span><span class="se">&#39;&#39;</span><span class="nv"> </span><span class="s">character&#39;</span><span class="w"></span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Configuration files use YAML syntax. Google it if you don't know anything about it. Main rule is that you must use two spaces instead of tabs when going deeper into the hierarchy tree. If you want to write <code>'</code> character, you must double it and surround the whole text with another <code>'</code> characters. When writing <code>true</code> or <code>false</code> it also needs to be surrounded with <code>'</code>. If you want to start the line with <code>&amp;</code> character, the whole line needs to be surrounded with <code>'</code>. You can check if the file is correct using <a href="http://www.yamllint.com">this tool</a>.</p>
 </div>
 <ul>
+<li><code>conversations</code> defines the section as a conversation section.</li>
+<li><code>ConversationName</code> is the name of the conversation, which you assign then to an NPC in the <code>npcs</code> section. Alternatively, you can combine <code>conversations</code> and <code>ConversationName</code> and use <code>conversations.ConversationName</code> instead.</li>
 <li><code>quester</code> is name of NPC. It should be the same as name of NPC this conversation is assigned to for greater immersion, but it's your call.</li>
 <li><code>first</code> are pointers to options the NPC will use at the beginning of the conversation. He will choose the first one that meets all conditions. You define these options in <code>npc_options</code> branch.</li>
 <li><code>final_events</code> are events that will fire on conversation end, no matter how it ends (so you can create e.g. guards attacking the player if he tries to run). You can leave this option out if you don't need any final events.</li>
@@ -2294,7 +2298,7 @@ In the above example, the option <em>start</em> is extended by both <em>tonight<
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-02-11T22:11:38+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-02-11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2022-04-27T17:04:28+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2022-04-27</span>
       
     
   </small>
