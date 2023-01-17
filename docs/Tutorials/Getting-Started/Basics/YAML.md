@@ -31,9 +31,37 @@ outerName:
   anotherInnerName: "BetonQuest is great!"
 ```
 
-Tabs are not supported. Use spaces instead.
+Values can span multiple lines using `|` or `>`.
+Spanning multiple lines using a “Literal Block Scalar” `|` will include the newlines and any trailing spaces. 
+Using a “Folded Block Scalar” `>` will fold newlines to spaces, 
+it’s used to make what would otherwise be a very long line easier to read and edit. 
+In either case the indentation will be ignored.
 
-You shouldn't name anything `yes`, `no`, `on`, `off`, `null`, `true` or `false` as those names are reserved keywords in YAML.  
+Examples:
+
+```YAML title="Multiple lines"
+include_newlines: |
+            exactly as you see
+            will appear these three
+            lines of poetry
+
+fold_newlines: >
+            this is really a
+            single line of text
+            despite appearances
+```
+
+Another way to show multiple lines is using the newline characters: `\n`.
+
+```YAML title="Multiple lines"
+fold_same_newlines: "line1\nline 2\nline  3\nf\last line"
+```
+
+!!! warning
+    Tabs are not supported. Use spaces instead.
+    You shouldn't name anything `yes`, `no`, `on`, `off`, `null`, `true` or `false` as those names are reserved keywords in YAML.  
+    if you use the `:` character in a value you have to escape it using backslashes.
+    One backslash (\) is required when using no quoting at all (...) or single quotes ('...'). Two backslashes are required (\\) when using double quotes ("...").
  
 ---
 [:material-arrow-right: Next Step: Conversations](../Basics/Conversations.md){ .md-button .md-button--primary }
