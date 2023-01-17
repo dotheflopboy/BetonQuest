@@ -54,7 +54,7 @@ fold_newlines: >
 Another way to show multiple lines is using the newline characters: `\n`.
 
 ```YAML title="Multiple lines"
-fold_same_newlines: "line1\nline 2\nline  3\nf\last line"
+fold_same_newlines: "line1\nline 2\nline  3\nf\nlast line"
 ```
 
 !!! warning
