@@ -46,7 +46,8 @@ public class HologramLoop {
     /**
      * Starts a loop, which checks hologram conditions and shows them to players.
      */
-    @SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.ExcessiveMethodLength", "PMD.NcssCount", "PMD.NPathComplexity", "PMD.CognitiveComplexity", "PMD.UseStringBufferForStringAppends"})
+    @SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NcssCount", "PMD.NPathComplexity", "PMD.CognitiveComplexity",
+            "PMD.UseStringBufferForStringAppends"})
     public HologramLoop() {
         final int defaultInterval = BetonQuest.getInstance().getPluginConfig().getInt("hologram_update_interval", 10 * 20);
         // get all holograms and their condition
@@ -118,7 +119,7 @@ public class HologramLoop {
             LOG.warn(pack, "Location is not specified in " + key + " hologram");
         } else {
             try {
-                location = new CompoundLocation(pack.getQuestPath(), pack.subst(rawLocation)).getLocation(null);
+                location = new CompoundLocation(pack, pack.subst(rawLocation)).getLocation(null);
             } catch (QuestRuntimeException | InstructionParseException e) {
                 LOG.warn(pack, "Could not parse location in " + key + " hologram: " + e.getMessage(), e);
             }

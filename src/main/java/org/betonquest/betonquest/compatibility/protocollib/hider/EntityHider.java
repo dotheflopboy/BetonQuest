@@ -23,7 +23,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.world.ChunkUnloadEvent;
 import org.bukkit.plugin.Plugin;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -34,7 +33,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * EntityHider From: https://gist.github.com/aadnk/5871793
  * We use the fork: https://gist.github.com/dmulloy2/5526f5bf906c064c255e
  */
-@SuppressWarnings("PMD.CommentRequired")
+@SuppressWarnings({"PMD.CommentRequired", "PMD.TooManyMethods"})
 public class EntityHider implements Listener {
 
     /**
@@ -297,13 +296,7 @@ public class EntityHider implements Listener {
             } else {
                 destroyEntity.getIntegerArrays().write(0, new int[]{entity.getEntityId()});
             }
-
-            // Make the entity disappear
-            try {
-                manager.sendServerPacket(observer.getPlayer(), destroyEntity);
-            } catch (final InvocationTargetException e) {
-                throw new RuntimeException("Cannot send server packet.", e);
-            }
+            manager.sendServerPacket(observer.getPlayer(), destroyEntity);
         }
         return visibleBefore;
     }

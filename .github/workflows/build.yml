@@ -47,7 +47,7 @@ jobs:
           echo "Check for difference in docs only. The value is '$CHANGES_IN_DOCS_ONLY'"
       - name: Generate build number for Development Build
         if: "github.repository == 'BetonQuest/BetonQuest' && ( github.ref == 'refs/heads/main' || startsWith(github.ref,'refs/heads/main_v') ) && env.CHANGES_IN_DOCS_ONLY == 'false'"
-        uses: einaregilsson/build-number@v3
+        uses: onyxmueller/build-tag-number@v1
         with:
           token: ${{ secrets.github_token }}
           prefix: ${{ env.MAVEN_VERSION }}
@@ -114,10 +114,6 @@ jobs:
         with:
           path: target/artifacts
           key: ${{ runner.os }}-target/artifacts-${{ github.run_number }}
-      - name: Remove SNAPSHOT version for Release Build
-        if: "env.VERSION_TYPE == 'release'"
-        run: |
-          mvn versions:set -DremoveSnapshot
       - name: Set CHANGELOG.md version
         run: |
           sed -i "s~## \[Unreleased\]~## \[${VERSION}\]~g" ./CHANGELOG.md
@@ -133,7 +129,8 @@ jobs:
           sed -i "s~#end_of_line = ~end_of_line = ~g" ./.editorconfig
       - name: Build with Maven. Phase 'verify'
         run: |
-          mvn -P Test-All -B verify
+          if [ $VERSION_TYPE == 'release' ]; then CHANGELIST=-Dchangelist=; fi
+          mvn $CHANGELIST -P Test-All -B verify
           git diff > target/artifacts/changes.patch
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
@@ -205,6 +202,11 @@ jobs:
       - name: Set mkdocs.yml version
         run: |
           sed -i "s~%VERSION%~${VERSION}~g" ./mkdocs.yml
+      - name: Set secret in downloads.js script
+        run: |
+          sed -i "s~\${REPOSITORY_URL}~${REPOSITORY_URL}~g" ./docs/_webCode/js/downloads.js
+        env:
+          REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
       - name: Build with mkdocs
         run: |
           if [ "$TXT" = "docs-requirements-insiders.txt" ]
@@ -229,7 +231,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      UPLOAD_URL: ${{ steps.save_upload_url.outputs.upload_url }}
+      UPLOAD_PATH: ${{ steps.save_upload_path.outputs.upload_path }}
 
     steps:
       - name: Set variables from 'Prepare Build Variables'
@@ -281,16 +283,17 @@ jobs:
             ]
       - name: Publish to Maven Repository
         run: |
-          mvn -P Skip-Verification,Test-None -B deploy | tee maven-deploy.log
+          if [ $VERSION_TYPE == 'release' ]; then CHANGELIST=-Dchangelist=; fi
+          mvn $CHANGELIST -P Skip-Verification,Test-None -B deploy | tee maven-deploy.log
         env:
           REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
           REPOSITORY_USER: ${{ secrets.REPOSITORY_USER }}
           REPOSITORY_PASS: ${{ secrets.REPOSITORY_PASS }}
       - name: Get upload URL from deploy log
-        id: save_upload_url
+        id: save_upload_path
         run: |
-          UPLOAD_URL="$(grep -oP "(?<=Uploading to betonquest: ${REPOSITORY_URL}).*-shaded.jar" maven-deploy.log)"
-          echo "upload_url=$UPLOAD_URL" >> $GITHUB_OUTPUT
+          UPLOAD_PATH="$(grep -oP "(?<=Uploading to betonquest: ${REPOSITORY_URL}).*-shaded.jar" maven-deploy.log)"
+          echo "upload_path=$UPLOAD_PATH" >> $GITHUB_OUTPUT
         env:
           REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
 
@@ -423,7 +426,7 @@ jobs:
 
   discord-announcement:
     name: Official Deployment
-    if: "always() && !cancelled() && (needs.prepare.outputs.VERSION_TYPE == 'release' || needs.prepare.outputs.VERSION_TYPE == 'development')"
+    if: "always() && !cancelled() && (needs.prepare.outputs.CHANGES_IN_DOCS_ONLY == 'false' || !failure()) && (needs.prepare.outputs.VERSION_TYPE == 'release' || needs.prepare.outputs.VERSION_TYPE == 'development')"
     needs: [ prepare, deploy-artifacts, deploy-docs, create-release ]
     runs-on: ubuntu-latest
 
@@ -434,7 +437,7 @@ jobs:
           echo "VERSION_TYPE=${{ needs.prepare.outputs.VERSION_TYPE }}" >> $GITHUB_ENV
           echo "PREVIOUS_VERSION_TAG=${{ needs.prepare.outputs.PREVIOUS_VERSION_TAG }}" >> $GITHUB_ENV
           echo "CHANGES_IN_DOCS_ONLY=${{ needs.prepare.outputs.CHANGES_IN_DOCS_ONLY }}" >> $GITHUB_ENV
-          echo "UPLOAD_URL=${REPOSITORY_URL}${{ needs.deploy-artifacts.outputs.UPLOAD_URL }}" >> $GITHUB_ENV
+          echo "UPLOAD_PATH=${{ needs.deploy-artifacts.outputs.UPLOAD_PATH }}" >> $GITHUB_ENV
         env:
           REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
       - name: Checkout source code
@@ -446,3 +449,4 @@ jobs:
         env:
           JOB_STATUS: ${{ job.status }}
           WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+          DOCS_URL: ${{ secrets.DOCS_URL }}

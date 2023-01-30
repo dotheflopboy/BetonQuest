@@ -7,6 +7,10 @@ if [ -z "$WEBHOOK_URL" ]; then
   echo "[Webhook]: WARNING! You need to pass the WEBHOOK_URL environment variable."
   exit 1
 fi
+if [ -z "$DOCS_URL" ]; then
+  echo "[Webhook]: WARNING! You need to pass the DOCS_URL environment variable."
+  exit 1
+fi
 
 echo "[Webhook]: Preparing resources...";
 AVATAR="https://github.com/actions.png"
@@ -43,12 +47,15 @@ case "$VERSION_TYPE" in
     RELEASE_NAME="Release-Build"
     RELEASE_DOWNLOAD_URL="https://github.com/BetonQuest/BetonQuest/releases"
     RELEASE_COMMIT_ICON_SUCCESS="$COMMIT_ICON_RELEASE"
+    DOCS_VERSION=$VERSION
     ;;
 
   "development" )
     RELEASE_NAME="Dev-Build"
-    RELEASE_DOWNLOAD_URL="https://betonquest.org/nexus/service/rest/repository/browse/betonquest/org/betonquest/betonquest/2.0.0-SNAPSHOT/"
+    RELEASE_DOWNLOAD_URL="${DOCS_URL}DEV/Downloads/"
     RELEASE_COMMIT_ICON_SUCCESS="$COMMIT_ICON_SUCCESS"
+    IFS='-' read -r -a array <<< "$VERSION"
+    DOCS_VERSION="${array[0]}-${array[1]}"
     ;;
 
   * )
@@ -63,15 +70,16 @@ case "$JOB_STATUS" in
     EMBED_COLOR=3066993
     DEV_BUILD_DOWNLOAD="Click to Download $VERSION!"
     STATUS_MESSAGE="$RELEASE_NAME is now available"
-    BUILD_DOWNLOAD_URL="$UPLOAD_URL"
+    BUILD_DOWNLOAD_URL="${DOCS_URL}${DOCS_VERSION}/Downloads/?path=$UPLOAD_PATH&filename=BetonQuest.jar"
     DESCRIPTION="${RELEASE_NAME}s available [HERE](${RELEASE_DOWNLOAD_URL}). Report bugs [HERE](https://github.com/BetonQuest/BetonQuest/issues)"
     COMMIT_ICON="$RELEASE_COMMIT_ICON_SUCCESS"
     ;;
 
   "failure"|"cancelled" )
+    if [[ $CHANGES_IN_DOCS_ONLY == false ]]; then VERSION_HINT=$VERSION; else VERSION_HINT="the Docs"; fi
     EMBED_COLOR=15158332
     STATUS_MESSAGE="There was an error building a $RELEASE_NAME!"
-    DEV_BUILD_DOWNLOAD="Inspect the failure on $VERSION!"
+    DEV_BUILD_DOWNLOAD="Inspect the failure on $VERSION_HINT!"
     BUILD_DOWNLOAD_URL="$COMMIT_URL"
     DESCRIPTION=""
     COMMIT_ICON="$COMMIT_ICON_FAILURE"

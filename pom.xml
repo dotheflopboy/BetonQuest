@@ -5,6 +5,7 @@
 
   <properties>
     <revision>2.0.0</revision>
+    <changelist>-SNAPSHOT</changelist>
     <betonquest.version>${revision}-DEV-UNOFFICIAL</betonquest.version>
     <minecraft.api.version>1.18</minecraft.api.version>
     <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
@@ -18,7 +19,7 @@
   <name>BetonQuest</name>
   <groupId>org.betonquest</groupId>
   <artifactId>betonquest</artifactId>
-  <version>${revision}-SNAPSHOT</version>
+  <version>${revision}${changelist}</version>
   <description>All Your Adventure Supplies</description>
 
   <licenses>
@@ -211,7 +212,7 @@
     <dependency>
       <groupId>com.comphenix.protocol</groupId>
       <artifactId>ProtocolLib</artifactId>
-      <version>4.7.0</version>
+      <version>5.0.0-SNAPSHOT</version>
       <scope>provided</scope>
       <optional>true</optional>
       <exclusions>
@@ -834,17 +835,17 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.19.0</version>
+          <version>3.20.0</version>
           <dependencies>
             <dependency>
               <groupId>net.sourceforge.pmd</groupId>
               <artifactId>pmd-core</artifactId>
-              <version>6.46.0</version>
+              <version>6.53.0</version>
             </dependency>
             <dependency>
               <groupId>net.sourceforge.pmd</groupId>
               <artifactId>pmd-java</artifactId>
-              <version>6.46.0</version>
+              <version>6.53.0</version>
             </dependency>
           </dependencies>
           <configuration>
